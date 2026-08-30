@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/styles.css">
+<script src="_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/_ds_bundle.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+html,body{margin:0;height:100%;background:hsl(204 96% 6%);overscroll-behavior:none;-webkit-text-size-adjust:100%}
+button{touch-action:manipulation}
+a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
+@keyframes cagedPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:0}40%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.9);opacity:0}}
+@keyframes cagedShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@keyframes cagedRise{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes cagedBurst{from{transform:scale(.3);opacity:.9}to{transform:scale(2.6);opacity:0}}
+</style>
+</helmet>
+
+<div style="{{ stilePagina }}">
+
+  <sc-if value="{{ cromo }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;align-items:baseline;gap:14px;color:hsl(40 30% 90%)">
+    <span style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;letter-spacing:.02em">UNCAGED</span>
+    <span style="font-size:14px;color:hsl(40 30% 90% / .68)">{{ tSub }}</span>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ verticale }}">
+  <div style="position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:40px;text-align:center;background:hsl(204 96% 10%);color:hsl(40 30% 90%)">
+    <div style="font-size:40px;line-height:1">⟳</div>
+    <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;line-height:1.15">{{ tRuotaTitolo }}</div>
+    <div style="font-size:14px;line-height:1.5;color:hsl(40 30% 90% / .65);max-width:26ch">{{ tRuotaTesto }}</div>
+  </div>
+  </sc-if>
+
+  <div style="{{ stileTelaio }}">
+    <sc-if value="{{ cromo }}" hint-placeholder-val="{{ true }}">
+    <div style="position:absolute;left:50%;bottom:5px;transform:translateX(-50%);width:180px;height:4px;border-radius:2px;background:hsl(40 30% 90% / .35)"></div>
+    </sc-if>
+    <div style="{{ stileSchermo }}">
+
+      <sc-if value="{{ aProfilo }}" hint-placeholder-val="{{ true }}">
+      <div style="{{ layoutProfilo }}">
+        <div style="{{ layoutPannello }}">
+          <div style="display:flex;align-items:center;gap:8px">
+            <button type="button" onClick="{{ apriSettings }}" style="{{ stileIconaSettings }}" title="{{ tSettings }}" aria-label="{{ tSettings }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3.2"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6 1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </button>
+            <button type="button" onClick="{{ apriStoria }}" style="{{ stileIconaStoria }}" title="{{ tStoria }}" aria-label="{{ tStoria }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"></path>
+                <path d="M4 20.5V5.5M20 18v3H6.5"></path>
+              </svg>
+            </button>
+            <button type="button" onClick="{{ apriAiuto }}" style="{{ stileIconaAiuto }}" title="{{ tComeFunziona }}" aria-label="{{ tComeFunziona }}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9.2"></circle>
+                <path d="M9.4 9.2a2.7 2.7 0 1 1 3.9 2.4c-.8.5-1.3 1-1.3 1.9v.3"></path>
+                <path d="M12 17.4h.01" stroke-width="2.6"></path>
+              </svg>
+            </button>
+            <div style="flex:1"></div>
+            <div style="display:flex;gap:3px;padding:2px;border-radius:8px;background:hsl(40 30% 90% / .08)">
+              <sc-for list="{{ lingue }}" as="l" hint-placeholder-count="2">
+                <button type="button" onClick="{{ l.onTap }}" style="{{ l.stile }}">{{ l.et }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+
+          <div style="display:flex;align-items:center;gap:16px">
+            <div style="width:66px;height:66px;flex:none;border-radius:50%;border:2px solid hsl(42 87% 55% / .45);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;color:hsl(42 87% 55%)">F</div>
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:hsl(6 63% 62%);margin-bottom:3px">UNCAGED</div>
+              <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-.01em">{{ tChitarrista }}</div>
+              <div style="font-size:13px;color:hsl(40 30% 90% / .6);margin-top:3px">{{ livello }}</div>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div style="padding:14px 16px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(42 87% 55% / .3)">
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ streak }}</div>
+              <div style="font-size:10px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tStreak }}</div>
+            </div>
+            <div style="padding:14px 16px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:800;line-height:1;color:hsl(199 89% 60%)">{{ accuratezza }}</div>
+              <div style="font-size:10px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tAccuratezza }}</div>
+            </div>
+            <div style="grid-column:1 / -1;display:flex;gap:10px">
+              <div style="box-sizing:border-box;flex:1;min-width:0;padding:14px 16px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
+                <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ puntiTot }}</div>
+                <div style="font-size:10px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tPunti }}</div>
+              </div>
+              <div style="position:relative;box-sizing:border-box;flex:1;min-width:0;display:flex;align-items:center;gap:11px;padding:14px 14px;border-radius:13px;background:linear-gradient(135deg,hsl(199 55% 38%),hsl(199 60% 30%));border:1px solid hsl(199 70% 58% / .7);box-shadow:0 5px 16px hsl(199 60% 25% / .35),inset 0 1px 0 hsl(0 0% 100% / .14);cursor:pointer">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(199 85% 88%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none">
+                  <path d="M9 18V6.4l10-1.6v11.6"></path>
+                  <ellipse cx="6.6" cy="18.2" rx="2.5" ry="2.1"></ellipse>
+                  <ellipse cx="16.6" cy="16.6" rx="2.5" ry="2.1"></ellipse>
+                </svg>
+                <div style="min-width:0;flex:1">
+                  <div style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:hsl(199 90% 94%)">{{ nomeQualita }}</div>
+                </div>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(199 85% 88%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none;opacity:.85">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+                <select onChange="{{ cambiaQualita }}" value="{{ valQualita }}" style="{{ stileSelectAccordo }}" aria-label="{{ tQualita }}">
+                  <sc-for list="{{ opzQualita }}" as="o" hint-placeholder-count="3">
+                    <option value="{{ o.v }}">{{ o.et }}</option>
+                  </sc-for>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="{{ layoutDestra }}">
+          <div>
+            <div style="display:flex;gap:9px">
+              <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
+                <button type="button" onClick="{{ f.onTap }}" style="{{ f.stileScuro }}">
+                  <div style="display:flex;flex-direction:column;gap:2px">
+                    <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:{{ f.coloreLetteraScuro }}">{{ f.lettera }}</span>
+                    <span style="font-size:10px;color:{{ f.colorePctScuro }}">{{ f.pct }}%</span>
+                  </div>
+                  <div style="height:5px;border-radius:3px;background:hsl(40 30% 90% / .12);overflow:hidden">
+                    <div style="height:100%;width:{{ f.pct }}%;background:{{ f.barra }};border-radius:3px"></div>
+                  </div>
+                </button>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;margin-top:11px;padding:13px 15px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(42 87% 55% / .28);overflow:auto">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+                <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:17px;line-height:1.15;color:hsl(42 88% 70%)">{{ selPrigioniero }}</div>
+                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .5)">{{ selEtichetta }}</div>
+              </div>
+              <div style="display:inline-flex;align-self:flex-start;margin-top:7px;padding:3px 9px;border-radius:999px;background:hsl(199 60% 40% / .35);border:1px solid hsl(199 70% 60% / .4);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:hsl(199 85% 82%)">{{ selGenere }}</div>
+              <div style="font-size:12px;line-height:1.45;color:hsl(40 30% 90% / .78);margin-top:7px;text-wrap:pretty">{{ selRitratto }}</div>
+              <div style="font-size:11.5px;line-height:1.5;color:hsl(40 30% 90% / .62);margin-top:5px;text-wrap:pretty">{{ selLore }}</div>
+              <div style="font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:12px;line-height:1.5;color:hsl(42 88% 76%);margin-top:8px;padding-left:10px;border-left:2px solid hsl(42 87% 55% / .5);text-wrap:pretty">{{ selBattuta }}</div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:auto">
+            <div style="display:flex;gap:10px">
+            <button type="button" onClick="{{ iniziaGiro }}" style="flex:1;min-height:62px;border:none;border-radius:16px;background:hsl(6 63% 55%);color:#fff;font-family:inherit;font-weight:700;font-size:19px;letter-spacing:.01em;cursor:pointer;box-shadow:0 10px 24px hsl(6 63% 55% / .34)" style-hover="background:hsl(6 63% 48%)">{{ testoCta }}</button>
+            <button type="button" onClick="{{ cambiaHardcore }}" style="{{ stileTeschio }}" title="{{ tHardcore }}" aria-label="{{ tHardcore }}">
+              <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.6c-4.2 0-7.2 3-7.2 7.1 0 2.2.9 3.7 2 4.7.5.5.8 1 .8 1.7v1.3c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4v-1.3c0-.7.3-1.2.8-1.7 1.1-1 2-2.5 2-4.7 0-4.1-3-7.1-7.2-7.1z"></path>
+                <circle cx="9.2" cy="10.2" r="1.7" fill="currentColor" stroke="none"></circle>
+                <circle cx="14.8" cy="10.2" r="1.7" fill="currentColor" stroke="none"></circle>
+                <path d="M10.6 14.6h2.8M10.4 18.8v2M13.6 18.8v2"></path>
+              </svg>
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ aDeck }}">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;background:hsl(204 96% 8%);color:hsl(40 30% 90%)">
+        <div style="box-sizing:border-box;flex:none;display:flex;align-items:center;gap:12px;padding:15px {{ padBordo }}px 11px">
+          <button type="button" onClick="{{ chiudiDeck }}" style="width:32px;height:32px;flex:none;border-radius:10px;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90%);font-size:15px;line-height:1;cursor:pointer;font-family:inherit" title="{{ tSalta }}" aria-label="{{ tSalta }}">←</button>
+          <div style="display:flex;gap:3px;padding:2px;border-radius:9px;background:hsl(40 30% 90% / .08)">
+            <button type="button" onClick="{{ vaiStoria }}" style="{{ stileTabStoria }}">{{ tStoria }}</button>
+            <button type="button" onClick="{{ vaiTutorial }}" style="{{ stileTabTutorial }}">{{ tComeFunziona }}</button>
+          </div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:hsl(6 63% 62%);white-space:nowrap">{{ slideCorrente.k }}</div>
+          <div style="flex:1"></div>
+          <div style="font-size:11px;letter-spacing:.06em;color:hsl(40 30% 90% / .5);white-space:nowrap">{{ etSlide }}</div>
+        </div>
+
+        <div style="box-sizing:border-box;flex:1;min-width:0;min-height:0;display:flex;align-items:center;gap:28px;padding:0 {{ padBordo }}px">
+          <div style="flex:1;min-width:0">
+            <h1 style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:36px;line-height:1.07;letter-spacing:-.02em;margin:0;text-wrap:pretty">{{ slideCorrente.t }}</h1>
+            <p style="margin:13px 0 0;font-size:15px;line-height:1.6;color:hsl(40 30% 90% / .84);max-width:50ch;text-wrap:pretty">{{ slideCorrente.d }}</p>
+          </div>
+
+          <div style="box-sizing:border-box;width:{{ larghFigura }}px;height:216px;flex:none;min-width:0;display:flex;align-items:center;justify-content:center;padding:14px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
+
+            <sc-if value="{{ figCage }}">
+            <div style="display:flex;align-items:flex-end;gap:8px">
+              <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
+                <div style="position:relative;width:44px;height:132px;border-radius:8px;border:2px solid {{ f.vitaColore }};background:hsl(204 96% 10%);overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px">
+                  <div style="position:absolute;left:12px;top:0;bottom:0;width:2px;background:{{ f.vitaColore }};opacity:.4"></div>
+                  <div style="position:absolute;left:28px;top:0;bottom:0;width:2px;background:{{ f.vitaColore }};opacity:.4"></div>
+                  <span style="position:relative;font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:{{ f.coloreLetteraSbarra }}">{{ f.lettera }}</span>
+                </div>
+              </sc-for>
+            </div>
+            </sc-if>
+
+            <sc-if value="{{ figLetters }}">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%">
+              <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:10px;background:hsl(204 96% 10%);border:1px solid hsl(40 30% 90% / .12)">
+                  <span style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:800;line-height:1;color:{{ f.coloreLetteraSbarra }}">{{ f.lettera }}</span>
+                  <span style="font-size:10px;font-weight:700;line-height:1.2;color:{{ f.colorePrigioniero }}">{{ f.prigioniero }}</span>
+                </div>
+              </sc-for>
+              <div style="grid-column:1 / -1;font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:11px;line-height:1.45;color:hsl(42 88% 74%);text-wrap:pretty">{{ battutaPrig }}</div>
+            </div>
+            </sc-if>
+
+
+            <sc-if value="{{ figKey }}">
+            <div style="display:flex;flex-direction:column;gap:11px;width:100%">
+              <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <span style="width:16px;flex:none;font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:800;line-height:1;color:{{ f.coloreLetteraSbarra }}">{{ f.lettera }}</span>
+                  <div style="flex:1;height:8px;border-radius:4px;background:hsl(40 30% 90% / .12);overflow:hidden">
+                    <div style="height:100%;width:{{ f.vita }}%;background:{{ f.vitaColore }};border-radius:4px"></div>
+                  </div>
+                  <span style="width:34px;flex:none;text-align:right;font-size:10px;font-weight:700;color:{{ f.colorePctScuro }}">{{ f.statoBoss }}</span>
+                </div>
+              </sc-for>
+            </div>
+            </sc-if>
+
+            <sc-if value="{{ figPlay }}">
+            <div style="position:relative;width:100%;height:150px">
+              <div style="position:absolute;left:14px;right:0;top:8px;bottom:8px;border-radius:5px;background:linear-gradient(180deg,hsl(24 32% 14%),hsl(24 36% 9%))"></div>
+              <sc-for list="{{ figTasti }}" as="t" hint-placeholder-count="5">
+                <div style="position:absolute;left:{{ t.x }}px;top:8px;bottom:8px;width:2px;background:hsl(40 20% 72% / .4)"></div>
+              </sc-for>
+              <sc-for list="{{ figCorde }}" as="c" hint-placeholder-count="6">
+                <div style="position:absolute;left:14px;right:0;top:{{ c.y }}px;height:1px;background:hsl(40 30% 90% / .5)"></div>
+              </sc-for>
+              <sc-for list="{{ figNote }}" as="n" hint-placeholder-count="4">
+                <div style="position:absolute;left:{{ n.x }}px;top:{{ n.y }}px;transform:translate(-50%,-50%);width:34px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;background:{{ n.sfondo }};color:{{ n.testoColore }};border:1px solid {{ n.bordo }}">{{ n.testo }}</div>
+              </sc-for>
+            </div>
+            </sc-if>
+
+            <sc-if value="{{ figCards }}">
+            <div style="display:flex;flex-direction:column;gap:13px;width:100%">
+              <div style="display:flex;gap:4px">
+                <sc-for list="{{ figPips }}" as="p" hint-placeholder-count="8">
+                  <div style="flex:1;height:6px;border-radius:3px;background:{{ p.colore }}"></div>
+                </sc-for>
+              </div>
+              <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55)">bpm</div>
+                  <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">70</div>
+                </div>
+                <div style="flex:1;height:44px;position:relative">
+                  <div style="position:absolute;left:0;right:0;bottom:6px;height:1px;background:hsl(40 30% 90% / .18)"></div>
+                  <div style="position:absolute;left:0;bottom:6px;width:100%;height:34px;border-bottom:0;background:linear-gradient(to top right,transparent 49%,hsl(42 87% 55% / .5) 50%,transparent 51%)"></div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55)">bpm</div>
+                  <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:800;line-height:1;color:hsl(6 63% 66%)">170</div>
+                </div>
+              </div>
+            </div>
+            </sc-if>
+
+            <sc-if value="{{ figHelp }}">
+            <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+              <sc-for list="{{ figAiuti }}" as="a" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:11px">
+                  <div style="width:34px;height:34px;flex:none;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;border:1px solid {{ a.colore }};color:{{ a.colore }}">{{ a.icona }}</div>
+                  <span style="font-size:11px;line-height:1.35;color:hsl(40 30% 90% / .8)">{{ a.testo }}</span>
+                </div>
+              </sc-for>
+            </div>
+            </sc-if>
+
+            <sc-if value="{{ figSkull }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:13px">
+              <div style="width:74px;height:74px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:hsl(6 63% 55%);color:#fff">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.6c-4.2 0-7.2 3-7.2 7.1 0 2.2.9 3.7 2 4.7.5.5.8 1 .8 1.7v1.3c0 .8.6 1.4 1.4 1.4h6c.8 0 1.4-.6 1.4-1.4v-1.3c0-.7.3-1.2.8-1.7 1.1-1 2-2.5 2-4.7 0-4.1-3-7.1-7.2-7.1z"></path>
+                  <circle cx="9.2" cy="10.2" r="1.7" fill="currentColor" stroke="none"></circle>
+                  <circle cx="14.8" cy="10.2" r="1.7" fill="currentColor" stroke="none"></circle>
+                  <path d="M10.6 14.6h2.8M10.4 18.8v2M13.6 18.8v2"></path>
+                </svg>
+              </div>
+              <div style="display:flex;gap:6px">
+                <sc-for list="{{ figSparso }}" as="s" hint-placeholder-count="5">
+                  <div style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;background:hsl(199 90% 62%);color:hsl(204 96% 8%)">{{ s.n }}</div>
+                </sc-for>
+              </div>
+            </div>
+            </sc-if>
+
+          </div>
+        </div>
+
+        <div style="box-sizing:border-box;flex:none;display:flex;align-items:center;gap:14px;padding:12px {{ padBordo }}px 18px">
+          <div style="display:flex;align-items:center;gap:6px">
+            <sc-for list="{{ puntiniSlide }}" as="p" hint-placeholder-count="5">
+              <button type="button" onClick="{{ p.onTap }}" style="{{ p.stile }}" aria-label="slide"></button>
+            </sc-for>
+          </div>
+          <div style="flex:1"></div>
+          <button type="button" onClick="{{ indietroSlide }}" style="min-height:44px;padding:0 20px;border-radius:12px;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90% / .8);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer">{{ tIndietro }}</button>
+          <sc-if value="{{ ultimaSlide }}">
+          <button type="button" onClick="{{ chiudiDeck }}" style="min-height:44px;padding:0 26px;border:none;border-radius:12px;background:hsl(6 63% 55%);color:#fff;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 8px 20px hsl(6 63% 55% / .3)" style-hover="background:hsl(6 63% 48%)">{{ tFineDeck }}</button>
+          </sc-if>
+          <sc-if value="{{ nonUltimaSlide }}" hint-placeholder-val="{{ true }}">
+          <button type="button" onClick="{{ avantiSlide }}" style="min-height:44px;padding:0 26px;border:none;border-radius:12px;background:hsl(42 87% 55%);color:hsl(204 96% 10%);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:hsl(42 90% 62%)">{{ tAvanti }}</button>
+          </sc-if>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ aSettings }}">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;overflow:auto;background:hsl(204 96% 10%);color:hsl(40 30% 90%)">
+        <div style="box-sizing:border-box;flex:none;display:flex;align-items:center;gap:14px;padding:20px {{ padBordo }}px 14px;border-bottom:1px solid hsl(40 30% 90% / .1)">
+          <button type="button" onClick="{{ vaiProfilo }}" style="width:32px;height:32px;flex:none;border-radius:10px;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90%);font-size:15px;line-height:1;cursor:pointer;font-family:inherit">←</button>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.01em">{{ tSettings }}</div>
+          <div style="flex:1"></div>
+          <div style="display:flex;gap:3px;padding:2px;border-radius:8px;background:hsl(40 30% 90% / .08)">
+            <sc-for list="{{ lingue }}" as="l" hint-placeholder-count="2">
+              <button type="button" onClick="{{ l.onTap }}" style="{{ l.stile }}">{{ l.et }}</button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="box-sizing:border-box;flex:1;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;padding:20px {{ padBordo }}px 26px">
+          <div style="display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+              <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tVolume }}</span>
+              <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ volume }}</span>
+            </div>
+            <input type="range" min="0" max="100" step="5" value="{{ volume }}" onChange="{{ cambiaVolume }}" style="width:100%;accent-color:hsl(42 87% 55%);cursor:pointer">
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tDifficolta }}</div>
+            <button type="button" onClick="{{ cambiaHardcore }}" style="display:flex;align-items:center;gap:12px;padding:0;border:none;background:transparent;cursor:pointer;font-family:inherit;text-align:left">
+              <div style="{{ swHardBox }}"><div style="{{ swHardPal }}"></div></div>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-size:14px;font-weight:700;color:hsl(40 30% 92%)">{{ tHardcore }}</span>
+                <span style="font-size:12px;line-height:1.35;color:hsl(40 30% 90% / .68)">{{ tHardcoreSub }}</span>
+              </div>
+            </button>
+          </div>
+
+          <div style="grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
+            <div style="min-width:0">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tLettura }}</div>
+              <div style="font-size:12px;line-height:1.4;color:hsl(40 30% 90% / .62);margin-top:4px">{{ tLetturaSub }}</div>
+            </div>
+            <div style="display:flex;gap:3px;flex:none;padding:3px;border-radius:12px;border:1px solid hsl(40 30% 90% / .16);background:hsl(40 30% 90% / .06)">
+              <button type="button" onClick="{{ cambiaNotazA }}" style="{{ stileNotazA }}" aria-label="{{ tNotazNote }}">♪</button>
+              <button type="button" onClick="{{ cambiaNotazB }}" style="{{ stileNotazB }}" aria-label="{{ tNotazCrom }}">♯</button>
+              <button type="button" onClick="{{ cambiaNotazC }}" style="{{ stileNotazC }}" aria-label="{{ tNotazRom }}">VII</button>
+            </div>
+          </div>
+
+          <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:14px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tAccessibilita }}</div>
+            <div style="display:flex;gap:28px;flex-wrap:wrap">
+              <button type="button" onClick="{{ cambiaTestoGrande }}" style="display:flex;align-items:center;gap:12px;padding:0;border:none;background:transparent;cursor:pointer;font-family:inherit;text-align:left">
+                <div style="{{ swTestoBox }}"><div style="{{ swTestoPal }}"></div></div>
+                <span style="font-size:14px;font-weight:700;color:hsl(40 30% 92%)">{{ tTestoGrande }}</span>
+              </button>
+              <button type="button" onClick="{{ cambiaRiduciMoto }}" style="display:flex;align-items:center;gap:12px;padding:0;border:none;background:transparent;cursor:pointer;font-family:inherit;text-align:left">
+                <div style="{{ swMotoBox }}"><div style="{{ swMotoPal }}"></div></div>
+                <span style="font-size:14px;font-weight:700;color:hsl(40 30% 92%)">{{ tRiduciMoto }}</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="button" onClick="{{ esporta }}" style="grid-column:1 / -1;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:14px;border:1px solid hsl(42 87% 55% / .5);background:hsl(42 87% 55% / .12);color:hsl(42 88% 70%);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <path d="M17 21v-8H7v8M7 3v5h8"></path>
+            </svg>
+            <span>{{ tEsporta }}</span>
+          </button>
+
+          <button type="button" onClick="{{ chiediAzzera }}" style="{{ stileAzzera }}">
+            <div style="min-width:0">
+              <div style="font-size:14px;font-weight:700">{{ tAzzera }}</div>
+              <div style="font-size:12px;line-height:1.35;opacity:.8;margin-top:3px">{{ tAzzeraSub }}</div>
+            </div>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none">
+              <path d="M4 7h16M9 7V4.8c0-.4.4-.8.8-.8h4.4c.4 0 .8.4.8.8V7"></path>
+              <path d="M6.5 7l.8 12.3c0 .9.8 1.7 1.7 1.7h6c.9 0 1.7-.8 1.7-1.7L17.5 7"></path>
+              <path d="M10.5 11v6M13.5 11v6"></path>
+            </svg>
+          </button>
+        </div>
+
+        <sc-if value="{{ confermaAperta }}">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:40px;background:hsl(204 96% 4% / .78)">
+          <div style="box-sizing:border-box;width:100%;max-width:430px;padding:24px 26px;border-radius:18px;background:hsl(204 96% 10%);border:1px solid hsl(6 63% 55% / .4);box-shadow:0 26px 60px rgba(0,0,0,.5)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
+              <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-.01em;color:hsl(40 30% 92%)">{{ tAzzeraTitolo }}</div>
+              <button type="button" onClick="{{ annullaAzzera }}" style="width:28px;height:28px;flex:none;border-radius:8px;border:1px solid hsl(40 30% 90% / .2);background:transparent;color:hsl(40 30% 90% / .7);font-size:14px;line-height:1;cursor:pointer;font-family:inherit" aria-label="{{ tAnnulla }}">✕</button>
+            </div>
+            <p style="margin:11px 0 0;font-size:13px;line-height:1.55;color:hsl(40 30% 90% / .78);text-wrap:pretty">{{ tAzzeraTesto }}</p>
+            <div style="display:flex;gap:10px;margin-top:20px">
+              <button type="button" onClick="{{ annullaAzzera }}" style="flex:1;min-height:46px;border-radius:12px;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90%);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer">{{ tAnnulla }}</button>
+              <button type="button" onClick="{{ azzera }}" style="flex:1;min-height:46px;border:none;border-radius:12px;background:hsl(6 63% 55%);color:#fff;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer" style-hover="background:hsl(6 63% 48%)">{{ tAzzeraSi }}</button>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ atHome }}">
+      <div style="{{ layoutHome }}">
+        <div style="{{ layoutHomePannello }}">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:hsl(6 63% 62%)">{{ tOggi }}</div>
+              <button type="button" onClick="{{ vaiProfilo }}" style="padding:4px 11px;border-radius:8px;border:1px solid hsl(40 30% 90% / .2);background:transparent;color:hsl(40 30% 90% / .7);font-family:inherit;font-weight:700;font-size:11px;cursor:pointer;white-space:nowrap">← {{ tVaiAlProfilo }}</button>
+            </div>
+            <h1 style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-.015em;margin:7px 0 6px;text-wrap:pretty">{{ tTitolo }}</h1>
+            <p style="margin:0;font-size:14px;line-height:1.5;color:hsl(40 30% 90% / .8);max-width:30ch">{{ tIntro }}</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px">
+            <div>
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ streak }}</div>
+              <div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .72);margin-top:4px">{{ tStreak }}</div>
+            </div>
+            <div style="width:1px;height:38px;background:hsl(40 30% 90% / .16)"></div>
+            <div>
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(40 30% 90%)">{{ accuratezza }}</div>
+              <div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .72);margin-top:4px">{{ tAccuratezza }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="{{ layoutHomeDestra }}">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:6px">{{ tForme }}</div>
+            <div style="display:flex;gap:9px">
+              <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
+                <button type="button" onClick="{{ f.onTap }}" style="{{ f.stile }}">
+                  <div style="display:flex;flex-direction:column;gap:3px">
+                    <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:{{ f.coloreLettera }}">{{ f.lettera }}</span>
+                    <span style="font-size:10px;letter-spacing:.04em;color:{{ f.colorePct }}">{{ f.pct }}%</span>
+                  </div>
+                  <div style="height:5px;border-radius:3px;background:{{ f.barraSfondo }};overflow:hidden">
+                    <div style="height:100%;width:{{ f.pct }}%;background:{{ f.barra }};border-radius:3px"></div>
+                  </div>
+                </button>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-direction:column;margin-top:11px;padding:13px 15px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(42 87% 55% / .28);overflow:auto">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+                <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:17px;line-height:1.15;color:hsl(42 88% 70%)">{{ selPrigioniero }}</div>
+                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .5)">{{ selEtichetta }}</div>
+              </div>
+              <div style="display:inline-flex;align-self:flex-start;margin-top:7px;padding:3px 9px;border-radius:999px;background:hsl(199 60% 40% / .35);border:1px solid hsl(199 70% 60% / .4);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:hsl(199 85% 82%)">{{ selGenere }}</div>
+              <div style="font-size:12px;line-height:1.45;color:hsl(40 30% 90% / .78);margin-top:7px;text-wrap:pretty">{{ selRitratto }}</div>
+              <div style="font-size:11.5px;line-height:1.5;color:hsl(40 30% 90% / .62);margin-top:5px;text-wrap:pretty">{{ selLore }}</div>
+              <div style="font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:12px;line-height:1.5;color:hsl(42 88% 76%);margin-top:8px;padding-left:10px;border-left:2px solid hsl(42 87% 55% / .5);text-wrap:pretty">{{ selBattuta }}</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:7px">{{ tQualita }}</div>
+            <select onChange="{{ cambiaQualita }}" value="{{ valQualita }}" style="{{ stileSelect }}">
+              <sc-for list="{{ opzQualita }}" as="o" hint-placeholder-count="7">
+                <option value="{{ o.v }}">{{ o.et }}</option>
+              </sc-for>
+            </select>
+          </div>
+
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:7px">{{ tToniche }}</div>
+            <select onChange="{{ cambiaTonica }}" value="{{ valTonica }}" style="{{ stileSelect }}">
+              <sc-for list="{{ opzToniche }}" as="o" hint-placeholder-count="13">
+                <option value="{{ o.v }}">{{ o.et }}</option>
+              </sc-for>
+            </select>
+          </div>
+
+          <button type="button" onClick="{{ cambiaHardcore }}" style="{{ stileHardcore }}">
+            <div style="{{ stileHardcoreBox }}">
+              <div style="{{ stileHardcorePallino }}"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:1px">
+              <span style="font-weight:700;font-size:13px;color:hsl(204 96% 10%)">{{ tHardcore }}</span>
+              <span style="font-size:11px;line-height:1.3;color:hsl(204 96% 10% / .72)">{{ tHardcoreSub }}</span>
+            </div>
+          </button>
+
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto">
+            <div style="font-size:11px;line-height:1.4;color:hsl(204 96% 10% / .74);text-wrap:pretty">{{ riepilogo }}</div>
+            <div style="display:flex;gap:12px;align-items:center">
+              <button type="button" onClick="{{ iniziaGiro }}" style="{{ stileCta }}">{{ testoCta }}</button>
+              <button type="button" style="min-height:46px;padding:0 18px;border-radius:13px;border:1px solid hsl(40 25% 78%);background:transparent;color:hsl(204 96% 10%);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:#fff">{{ tRipassa }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ inGioco }}">
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;background:hsl(204 96% 8%);color:hsl(40 30% 90%)">
+        <div style="box-sizing:border-box;flex:none;padding:12px {{ padBordo }}px 10px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid hsl(40 30% 90% / .1)">
+          <div style="display:flex;align-items:center;gap:14px">
+            <button type="button" onClick="{{ tornaHome }}" style="width:30px;height:30px;flex:none;border-radius:9px;border:1px solid hsl(40 30% 90% / .18);background:transparent;color:hsl(40 30% 90%);font-size:14px;line-height:1;cursor:pointer;font-family:inherit">←</button>
+            <div style="position:relative;display:flex;align-items:center;gap:9px;padding:5px 12px 5px 14px;border-radius:12px;cursor:pointer;background:hsl(40 30% 90% / .1);border:1px solid hsl(40 30% 90% / .28);box-shadow:inset 0 1px 0 hsl(40 30% 90% / .12)" style-hover="background:hsl(42 87% 55% / .18);border-color:hsl(42 87% 55% / .6)">
+              <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:30px;line-height:1;letter-spacing:-.02em;white-space:nowrap">{{ accordoCorrente }}</div>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="hsl(42 88% 66%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex:none">
+                <path d="M6 9l6 6 6-6"></path>
+              </svg>
+              <select onChange="{{ cambiaTonicaInGioco }}" value="{{ valTonica }}" style="{{ stileSelectAccordo }}" aria-label="{{ tToniche }}">
+                <sc-for list="{{ opzToniche }}" as="o" hint-placeholder-count="13">
+                  <option value="{{ o.v }}">{{ o.et }}</option>
+                </sc-for>
+              </select>
+            </div>
+            <div style="display:inline-flex;flex:none;padding:4px 10px;border-radius:999px;background:hsl(6 63% 55% / .16);color:hsl(6 63% 66%);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">{{ etichettaForma }}</div>
+            <div style="flex:1"></div>
+            <button type="button" onClick="{{ apriSettings }}" style="{{ stileAiuto }}" title="{{ tSettings }}" aria-label="{{ tSettings }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3.2"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6 1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </button>
+            <button type="button" onClick="{{ micToggle }}" style="{{ stileMic }}" title="{{ tMic }}" aria-label="{{ tMic }}">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="2" width="6" height="11" rx="3"></rect>
+                <path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"></path>
+              </svg>
+            </button>
+            <button type="button" onClick="{{ mostraForma }}" style="{{ stileAiuto }}" title="{{ tAiuto }}" aria-label="{{ tAiuto }}">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"></path>
+                <circle cx="12" cy="12" r="2.8"></circle>
+              </svg>
+            </button>
+            <button type="button" onClick="{{ riascolta }}" style="{{ stileRiascolta }}" title="{{ testoRiascolta }}" aria-label="{{ testoRiascolta }}">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 5v6h6"></path>
+                <path d="M3.5 11a8.5 8.5 0 1 1 2.2 7.2"></path>
+              </svg>
+            </button>
+            <div style="display:flex;align-items:baseline;gap:6px;flex:none;padding:5px 12px;border-radius:999px;background:{{ comboBg }}">
+              <span style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:16px;color:{{ comboColore }}">×{{ combo }}</span>
+              <span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:{{ comboColore }};opacity:.75">{{ tCombo }}</span>
+            </div>
+            <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:22px;color:hsl(40 30% 90%)">{{ punti }}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px">
+            <div style="font-size:14px;font-weight:700;line-height:1.2;white-space:nowrap;color:{{ istruzioneColore }}">{{ istruzione }}</div>
+            <div style="flex:1;min-width:0;font-size:12px;line-height:1.35;color:hsl(40 30% 90% / .72);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ sottoIstruzione }}</div>
+            <div style="font-size:12px;flex:none;color:hsl(40 30% 90% / .62);white-space:nowrap">{{ metaCarta }}</div>
+            <div style="display:flex;gap:4px;width:190px;flex:none">
+              <sc-for list="{{ pips }}" as="pip" hint-placeholder-count="8">
+                <div style="flex:1;height:4px;border-radius:2px;background:{{ pip.colore }}"></div>
+              </sc-for>
+            </div>
+            <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .62);white-space:nowrap">{{ contatoreCarte }}</div>
+          </div>
+        </div>
+
+        <div style="flex:1;display:flex;min-height:0">
+          <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:0 14px">
+            <div style="{{ stileManico }}">
+              <div style="position:absolute;left:40px;right:0;top:8px;bottom:28px;border-radius:6px;background:linear-gradient(180deg,hsl(24 32% 12%),hsl(24 36% 8%));box-shadow:inset 0 2px 6px rgba(0,0,0,.5)"></div>
+              <sc-for list="{{ tastiLinee }}" as="t" hint-placeholder-count="6">
+                <div style="position:absolute;left:{{ t.x }}px;top:8px;bottom:28px;width:{{ t.w }}px;background:{{ t.colore }};border-radius:1px"></div>
+              </sc-for>
+              <sc-for list="{{ segnitasto }}" as="m" hint-placeholder-count="2">
+                <div style="position:absolute;left:{{ m.x }}px;top:50%;transform:translate(-50%,-50%);width:11px;height:11px;border-radius:50%;background:hsl(40 30% 90% / .18)"></div>
+              </sc-for>
+              <sc-for list="{{ corde }}" as="c" hint-placeholder-count="6">
+                <div style="position:absolute;left:40px;right:0;top:{{ c.y }}px;height:{{ c.h }}px;background:{{ c.colore }};transform:translateY(-50%)"></div>
+              </sc-for>
+              <sc-for list="{{ etichetteCorde }}" as="e" hint-placeholder-count="6">
+                <div style="position:absolute;left:0;top:{{ e.y }}px;transform:translateY(-50%);width:30px;text-align:right;font-size:12px;font-weight:700;color:{{ e.colore }}">{{ e.testo }}</div>
+              </sc-for>
+              <sc-for list="{{ celle }}" as="cell" hint-placeholder-count="30">
+                <button type="button" onClick="{{ cell.onTap }}" style="position:absolute;left:{{ cell.x }}px;top:{{ cell.y }}px;transform:translate(-50%,-50%);width:{{ cell.w }}px;height:38px;border-radius:19px;border:{{ cell.bordo }};background:{{ cell.sfondo }};color:{{ cell.testoColore }};font-family:'DM Sans',system-ui,sans-serif;font-weight:700;font-size:12px;letter-spacing:.01em;cursor:pointer;padding:0;font-size:{{ cell.dim }};text-shadow:{{ cell.ombraTesto }};transition:background .12s,transform .12s;box-shadow:{{ cell.ombra }}">{{ cell.testo }}</button>
+              </sc-for>
+              <sc-for list="{{ onde }}" as="o" hint-placeholder-count="0">
+                <div style="position:absolute;left:{{ o.x }}px;top:{{ o.y }}px;width:80px;height:42px;border-radius:21px;border:2px solid {{ o.colore }};animation:cagedPulse .6s ease-out forwards;pointer-events:none"></div>
+              </sc-for>
+              <sc-for list="{{ numeriTasti }}" as="n" hint-placeholder-count="5">
+                <div style="position:absolute;left:{{ n.x }}px;bottom:0;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.06em;color:{{ n.colore }}">{{ n.testo }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <sc-if value="{{ aRisultato }}">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;background:hsl(204 96% 10%);color:hsl(40 30% 90%);padding:0 46px;gap:40px">
+        <div style="position:absolute;left:120px;top:50%;width:180px;height:180px;border-radius:50%;border:2px solid hsl(42 87% 55% / .5);transform:translate(-50%,-50%);animation:{{ animBurst }};pointer-events:none"></div>
+        <div style="flex:1;animation:{{ animRisultato }}">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:hsl(42 87% 55%)">{{ urloTaglio }}</div>
+          <h1 style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:40px;line-height:1.06;margin:10px 0 10px;letter-spacing:-.02em;text-wrap:pretty">{{ titoloRisultato }}</h1>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:hsl(40 30% 90% / .8);max-width:34ch">{{ testoRisultato }}</p>
+          <div style="margin-top:16px;padding:12px 16px;border-left:2px solid hsl(42 87% 55%);max-width:40ch">
+            <div style="font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:14px;line-height:1.5;color:hsl(42 88% 78%);text-wrap:pretty">{{ battutaPrig }}</div>
+            <div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55);margin-top:7px">{{ firmaPrig }}</div>
+          </div>
+          <div style="display:flex;gap:12px;margin-top:24px">
+            <button type="button" onClick="{{ riprendiGiro }}" style="min-height:50px;padding:0 26px;border:none;border-radius:14px;background:hsl(6 63% 55%);color:#fff;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:hsl(6 63% 48%)">{{ tAltroGiro }}</button>
+            <button type="button" onClick="{{ vaiProfilo }}" style="min-height:50px;padding:0 22px;border-radius:14px;border:1px solid hsl(40 30% 90% / .2);background:transparent;color:hsl(40 30% 90%);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer">{{ tChiudi }}</button>
+          </div>
+        </div>
+        <div style="width:360px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px">
+            <div style="flex:1;padding:18px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ punti }}</div>
+              <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-top:6px">{{ tPunti }}</div>
+            </div>
+            <div style="flex:1;padding:18px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
+              <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(40 30% 90%)">{{ perfette }}<span style="font-size:18px;opacity:.45">/{{ nCarte }}</span></div>
+              <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-top:6px">{{ tCartePulite }}</div>
+            </div>
+          </div>
+          <div style="padding:16px 18px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
+            <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-bottom:10px">{{ tFormeIncontrate }}</div>
+            <div style="display:flex;gap:8px">
+              <sc-for list="{{ formeGiro }}" as="f" hint-placeholder-count="5">
+                <div style="flex:1;text-align:center;padding:8px 0;border-radius:10px;background:{{ f.sfondo }};color:{{ f.colore }};font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:17px">{{ f.lettera }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+    </sc-if></div>
+  </div>
+
+  <sc-if value="{{ cromo }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:868px;font-size:13px;line-height:1.6;color:hsl(40 30% 90% / .68);text-align:center;text-wrap:pretty">
+    {{ tPie }}
+  </div>
+  </sc-if>
+
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:960,&quot;height&quot;:620},&quot;carteRound&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;min&quot;:4,&quot;max&quot;:12,&quot;default&quot;:8,&quot;tsType&quot;:&quot;number&quot;}}">
+const APERTE = [40,45,50,55,59,64];
+const NOMI = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+// pc 1 e 6 si scrivono con diesis sugli accordi minori e di dominante, con bemolle sui maggiori
+const NOMI_D = ['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
+const DIESIS = {min:1, m7:1, dom7:1, pentmin:1};
+function radiceNome(pc, qId){ return (DIESIS[qId] ? NOMI_D : NOMI)[pc]; }
+const LETTERE7 = ['C','D','E','F','G','A','B'], PC7 = [0,2,4,5,7,9,11];
+// quanti gradi diatonici copre ogni intervallo cromatico
+const PASSI = [0,1,1,2,2,3,4,4,5,5,6,6];
+const ALTER = {0:'', 1:'♯', 2:'♯♯', 11:'♭', 10:'♭♭'};
+// ortografia corretta: lettera dalla fondamentale + grado, alterazione dalla classe di altezza
+function scrivi(pc, radiceLettera, intervallo){
+  const li = (LETTERE7.indexOf(radiceLettera) + PASSI[intervallo]) % 7;
+  const scarto = (pc - PC7[li] + 12) % 12;
+  return LETTERE7[li] + (ALTER[scarto] !== undefined ? ALTER[scarto] : '');
+}
+const ROMANI = ['','I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII'];
+const RADICE = {C:1, A:1, G:0, E:0, D:2};
+const QUALITA = [
+  {id:'dom7', et:'7',    suff:'7',    gruppo:'Quadriadi'},
+  {id:'m7',   et:'m7',   suff:'m7',   gruppo:'Quadriadi'},
+  {id:'maj7', et:'maj7', suff:'maj7', gruppo:'Quadriadi'}
+];
+// Shape chord CAGED: corde mute incluse nella forma
+// C e A → MI grave muto · D → MI e LA muti · G ed E → sei corde
+const FORME = {
+  mag:  {C:[null,3,2,0,1,0], A:[null,0,2,2,2,0], G:[3,2,0,0,3,3], E:[0,2,2,1,0,0], D:[null,null,0,2,3,2]},
+  min:  {C:[null,3,1,0,1,3], A:[null,0,2,2,1,0], G:[3,1,0,0,3,3], E:[0,2,2,0,0,0], D:[null,null,0,2,3,1]},
+  dom7: {C:[null,3,2,3,1,3], A:[null,0,2,0,2,0], G:[3,2,0,0,0,1], E:[0,2,0,1,0,0], D:[null,null,0,2,1,2]},
+  m7:   {C:[null,3,1,3,4,3], A:[null,0,2,0,1,0], G:[3,1,3,0,3,3], E:[0,2,0,0,0,0], D:[null,null,0,2,1,1]},
+  maj7: {C:[null,3,2,0,0,0], A:[null,0,2,1,2,0], G:[3,2,0,0,0,2], E:[0,2,1,1,0,0], D:[null,null,0,2,2,2]}
+};
+const INTERVALLI = {mag:[0,4,7], min:[0,3,7], dom7:[0,4,7,10], m7:[0,3,7,10], maj7:[0,4,7,11]};
+const NOMEGRADO = {0:'R', 1:'♭9', 2:'9', 3:'♭3', 4:'3', 5:'4', 6:'♭5', 7:'5', 8:'♭6', 9:'6', 10:'♭7', 11:'7'};
+// solfeggio cromatico: sillabe alterate, fondamentale = Do
+const MOBILE = {0:'Do', 1:'Di', 2:'Re', 3:'Me', 4:'Mi', 5:'Fa', 6:'Fi', 7:'Sol', 8:'Le', 9:'La', 10:'Te', 11:'Ti'};
+// grado in numeri romani, con l'alterazione davanti
+const ROMGRADO = {0:'I', 1:'♭II', 2:'II', 3:'♭III', 4:'III', 5:'IV', 6:'♭V', 7:'V', 8:'♭VI', 9:'VI', 10:'♭VII', 11:'VII'};
+// etichetta di una cella, robusta anche su carte generate prima di un ricaricamento
+function etichetta(n, notazione){
+  if(!n) return '';
+  const iv = n.iv || 0;
+  if(notazione === 'note') return n.nota || NOMI[n.midi % 12];
+  if(notazione === 'romani') return n.romano || ROMGRADO[iv];
+  if(notazione === 'mobile') return n.mobile || MOBILE[iv];
+  return n.grado || NOMEGRADO[iv] || '';
+}
+const NOTAZIONI = [{id:'note'}, {id:'mobile'}];
+const CHIAVE = 'fretto.profilo.v1';
+const L = {
+  it: {
+    sub:'UNCAGED · memory CAGED · telefono orizzontale',
+    ruotaT:'Gira il telefono', ruotaP:'Solo per suonare: il manico ha bisogno di tutta la larghezza. Profilo e menu funzionano anche in verticale.',
+    oggi:'Allenamento di oggi', titolo:'Poche forme, ben consolidate.',
+    intro:'Scegli qualità e forme: il giro pesca solo da quelle. La chitarra suona, tu ripeti a memoria. Direzione e lunghezza cambiano da sole, carta per carta.',
+    streak:'giorni di fila', streakZero:'Il primo giro apre la serie', streakSub:n=>n === 1 ? 'La serie è cominciata' : 'Non spezzarla adesso', acc:'colpi giusti', lettura:'Come leggi le note', qualita:'Qualità in allenamento',
+    toniche:'Toniche', tutte:'Tutte', forme:'Forme CAGED — tocca per attivare', ripassa:'Ripassa',
+    pie:'La direzione dell’arpeggio si autoregola: forma ancora fragile → sempre in salita, forma solida → anche in discesa.',
+    combo:'combo', giroFatto:'Giro completato', punti:'punti', pulite:'carte pulite', formeInc:'Forme incontrate',
+    altro:'Un altro giro', chiudi:'Chiudi', riascolta:'Riascolta', pos:'pos.', note:'note',
+    cta:n=>'Inizia', ctaOff:'Seleziona cosa allenare',
+    notaz:{gradi:'Gradi', note:'Note reali', mobile:'Cromatico'},
+    qual:{dom7:'Settima di dominante', m7:'Minore settima', maj7:'Maggiore settima'},
+    fasi:{
+      anteprima:['Ecco la forma','Due secondi per fotografarla: poi si spegne e parte la sequenza.'],
+      guarda:['Guarda e ascolta','L’arpeggio si accende nota per nota dalla tonica.'],
+      guardaHard:['Guarda e ascolta','Parte dalla tonica, poi ordine sparso: ricorda le posizioni.'],
+      riascolto:['Riascolta','Le note si riaccendono: quelle già prese restano al loro posto.'],
+      ripeti:['Ora ripeti tu','Tocca le stesse note, nello stesso ordine.'],
+      ok:['Perfetto','Frammento completo. Avanti.'],
+      errore:['Quasi','Guarda dove cadeva — te la rimettiamo davanti tra un attimo.'],
+      attesa:['Pronto','']
+    },
+    esiti:['Giro impeccabile.','Le forme stanno entrando.','Ci siamo quasi — riproviamo.'],
+    urla:[
+      ['Dieci su dieci. La gabbia ha tremato.','Nessun errore. Il manico è tuo.','Pulito dall’inizio alla fine. Assalto perfetto.','Hai suonato come se le sbarre non esistessero.'],
+      ['Le dita hanno imparato la strada.','Il guardiano ha fatto un passo indietro.','Ci sta cedendo. Ancora un giro così.','La forma sta entrando nelle mani.'],
+      ['Un giro sporco è comunque un colpo alla gabbia.','Il guardiano ha resistito. Non ha vinto.','Ogni errore è una nota che da adesso conosci.','Rimetti le mani sul manico e ricomincia.']
+    ],
+    urlaTaglio:['Assalto perfetto','Terreno guadagnato','Colpo assorbito'],
+    liberazione:(nome,l)=>'La gabbia ' + l + ' è aperta: ' + nome + ' è libero. Prendi un’altra lettera e vai a spezzarla.',
+    spinta:(nome,l,n)=>'Gabbia ' + l + ' ancora integra al ' + n + '%: ' + nome + ' aspetta dietro le sbarre. Le carte pulite la piegano, gli errori la rinforzano.',
+    esito:(p,n,q)=>'Hai chiuso ' + p + ' carte su ' + n + ' senza inciampi su ' + (q || 'le forme scelte') + '. Tieni questa selezione ancora un paio di giri.',
+    riep:(c,t)=>c + (c === 1 ? ' combinazione' : ' combinazioni') + ' · ' + (t === 0 ? 'toniche a caso su tutto il manico' : t + (t === 1 ? ' tonica scelta' : ' toniche scelte')),
+    riepOff:'Attiva almeno una forma per iniziare.', forma:'forma', tutteToniche:'Tutte le toniche',
+    micOff:'Suona con la chitarra', micOn:'In ascolto — suona le note', micSento:'Sento', micNegato:'Microfono non disponibile',
+    hardcore:'Hardcore', hardcoreSub:'Note in ordine sparso dopo la tonica', aiuto:'Vedi la forma', chiede:e=>'Dov’è ' + e + '?', chiedeSub:'Ultimo colpo: una posizione di quella nota che non hai ancora toccato.',
+    storia:'La storia', storiaSub:'I più grandi chitarristi della storia sono stati ingabbiati: C‑A‑G‑E‑D.',
+    salta:'Chiudi', avanti:'Avanti', indietro:'Indietro', chiudiStoria:'Entra nella gabbia', iniziaOra:'Comincia l’assalto',
+    figAiuto1:'♪/♯ · nomi delle note o solfeggio cromatico',
+    figAiuto2:'occhio · riaccende la forma per due secondi',
+    figAiuto3:'freccia · riascolta la sequenza',
+    figAiuto4:'microfono · rispondi suonando la chitarra',
+    // PARCHEGGIATA — schermate lore future: {k:'I guardiani', t:'Un diavolo con la faccia da maiale.', d:'Nessuna gabbia è senza custode. Ceppo, Aspide, Grifo, Ergastolo e Dente non aprono per pietà: cedono solo davanti a chi conosce la forma meglio di loro.', f:'boss'}
+    slides:[
+      {k:'Prologo', t:'Sono stati ingabbiati.', d:'I più grandi chitarristi della storia sono scomparsi dai palchi. Nessuno li ha visti uscire: sono stati chiusi dentro cinque gabbie, e a quelle gabbie è stato dato un nome che ogni chitarrista conosce a memoria — C, A, G, E, D.', f:'cage'},
+      {k:'Le gabbie', t:'Cinque lettere, cinque prigioni.', d:'In ogni lettera c’è un maestro rinchiuso: quello che di quel suono aveva fatto la propria lingua. Cambia la qualità dell’accordo e cambiano i prigionieri — quindici maestri in tutto.', f:'letters'},
+      {k:'La chiave', t:'La forma CAGED apre la serratura.', d:'Non serve forzare niente: la gabbia è fatta della stessa materia della forma. Quando arrivi al 100% le tue melodie possono aprirla', f:'key'}
+    ],
+    tut:[
+      {k:'Il ciclo', t:'Guarda, ascolta, ripeti.', d:'La prima carta mostra l’arpeggio completo per due secondi e mezzo. Poi le note si accendono e suonano una per volta, sempre partendo dalla tonica. Quando la tastiera si spegne, tocca le stesse posizioni nello stesso ordine.', f:'play'},
+      {k:'Il giro', t:'Otto carte per assalto.', d:'Un giro sono otto sequenze. Le carte pulite alzano la percentuale della forma, gli errori la abbassano — e da quella dipendono tempo (70→170 bpm), lunghezza del frammento e direzione, in salita o in discesa.', f:'cards'},
+      {k:'Gli aiuti', t:'Hai tre appigli.', d:'Nella barra di gioco: l’occhio riaccende la forma per due secondi (e ti costa la carta pulita), la freccia riascolta la sequenza, il microfono ti fa rispondere suonando davvero. Il nome dell’accordo apre le toniche.', f:'help'},
+      {k:'Hardcore', t:'Hardcore Mode\n', d:'Con il teschio acceso, dopo la tonica le note escono in ordine sparso invece che per altezza. Niente scorciatoie melodiche: solo memoria delle posizioni.', f:'skull'}
+    ],
+    suonoOra:(q,s)=>'Con ' + q + ' sono i maestri del ' + s + '.',
+    storiaChiusa:'Ogni lettera è una gabbia con dentro un chitarrista famoso proprio per quella qualità di accordo, e ogni gabbia ha il suo guardiano: un diavolo con la faccia da maiale. La forma CAGED è la chiave — padroneggiala e la gabbia si apre. Cambiando qualità cambiano i prigionieri: quindici maestri in tutto.',
+    gabbia:'Le cinque gabbie', gabbiaSub:'In ogni lettera è rinchiuso un chitarrista, e ogni gabbia ha il suo guardiano. La forma CAGED è la chiave che la apre.',
+    prigioniero:'Liberati', liberato:'Gabbia aperta — è libero.',
+    ingabbiato:n=>'Gabbie integre al ' + n + '%',
+    prigionieri:['Il Bluesman','La Slide','Il Bebop','Il Feedback','Le Dodici Corde'],
+    comeFunziona:'Come funziona',
+    passi:[
+      {t:'La storia', d:'I più grandi chitarristi della storia sono stati ingabbiati: C‑A‑G‑E‑D. Ogni lettera è una gabbia con un chitarrista dentro, e ogni gabbia ha il suo guardiano — un diavolo con la faccia da maiale. La forma CAGED è la chiave: padroneggiala e la gabbia si apre.'},
+      {t:'1 · Scegli la gabbia', d:'Attiva una o più gabbie e la qualità dell’accordo. Il giro pesca solo da lì.'},
+      {t:'2 · Fotografa la forma', d:'La prima carta mostra l’arpeggio completo per due secondi e mezzo: fondamentale in oro, resto in azzurro.'},
+      {t:'3 · Ascolta la sequenza', d:'Le note si accendono e suonano una per volta, sempre partendo dalla tonica, in salita o in discesa.'},
+      {t:'4 · Ripeti a memoria', do_:'', d:'La tastiera si spegne: tocca le stesse posizioni nello stesso ordine. Un errore azzera la combo e rivela la forma.'},
+      {t:'Aiuti in gioco', d:'♪/♯ cambia lettura delle note, l’occhio riaccende la forma per due secondi (costa la carta pulita), la freccia riascolta la sequenza. Il nome dell’accordo apre le toniche.'},
+      {t:'Come cresce', d:'Ogni forma ha una percentuale per qualità: sale con le carte pulite, scende con gli errori. Da quella dipendono tempo (70→170 bpm), lunghezza del frammento e direzione.'},
+      {t:'Hardcore', d:'Le note dopo la tonica escono in ordine sparso invece che per altezza.'}
+    ],
+    notazRom:'Gradi romani',
+    azzera:'Cancella i dati di gioco', azzeraSub:'Serie, punti e padronanza tornano a zero',
+    azzeraTitolo:'Cancellare tutto?', azzeraSi:'Sì, cancella', annulla:'Annulla',
+    azzeraTesto:'Serie, sessioni, punti e padronanza di tutte le gabbie tornano a zero. Non si torna indietro: se ti servono, esporta prima la partita su file.',
+    esporta:'Salva partita su file', settings:'Impostazioni', volume:'Volume', difficolta:'Difficoltà',
+    accessibilita:'Accessibilità', testoGrande:'Testo più grande', riduciMoto:'Riduci le animazioni',
+    altreOpzioni:'Altre opzioni', profilo:'Profilo', chitarrista:'Chitarrista', giriFatti:'sessioni finite', carteViste:'sequenze fatte',
+    padrForma:'Padronanza per forma',
+    padrMedia:'Padronanza media', allena:'Allenati', vaiAlProfilo:'Profilo',
+    profVuoto:'Nessun giro ancora. La prima sessione mette in moto lo streak e sblocca le percentuali per forma.',
+    profPieno:'Ogni forma ha una percentuale per qualità: cambiando qualità ripartono da zero. Salgono con le carte pulite, scendono con gli errori, e velocità e direzione seguono quelle.'
+  },
+  en: {
+    sub:'UNCAGED · CAGED memory · landscape phone',
+    ruotaT:'Turn your phone', ruotaP:'Only to play: the neck needs the full width. Profile and menu work upright too.',
+    oggi:'Today’s practice', titolo:'A few shapes, properly owned.',
+    intro:'Pick qualities and shapes: the round draws only from those. The guitar plays, you repeat from memory. Direction and length shift on their own, card by card.',
+    streak:'day streak', streakZero:'Your first round starts it', streakSub:n=>n === 1 ? 'The streak has begun' : 'Don’t break it now', acc:'clean hits', lettura:'How you read the notes', qualita:'Qualities in play',
+    toniche:'Roots', tutte:'All', forme:'CAGED shapes — tap to enable', ripassa:'Review',
+    pie:'Arpeggio direction adapts on its own: shaky shape → always ascending, solid shape → descending too.',
+    combo:'combo', giroFatto:'Round complete', punti:'points', pulite:'clean cards', formeInc:'Shapes you met',
+    altro:'Another round', chiudi:'Close', riascolta:'Replay', pos:'pos.', note:'notes',
+    cta:n=>'Start', ctaOff:'Pick what to practise',
+    notaz:{gradi:'Degrees', note:'Note names', mobile:'Chromatic'},
+    qual:{dom7:'Dominant 7', m7:'Minor 7', maj7:'Major 7'},
+    fasi:{
+      anteprima:['Here’s the shape','Two seconds to photograph it, then it goes dark and the sequence starts.'],
+      guarda:['Watch and listen','The arpeggio lights up note by note from the root.'],
+      guardaHard:['Watch and listen','Starts on the root, then scattered order: remember the positions.'],
+      riascolto:['Replaying','Notes light again — the ones you already got stay put.'],
+      ripeti:['Now you repeat','Tap the same notes, in the same order.'],
+      ok:['Perfect','Fragment complete. Next.'],
+      errore:['Close','See where it fell — back in front of you in a second.'],
+      attesa:['Ready','']
+    },
+    esiti:['Flawless round.','The shapes are sinking in.','Almost there — go again.'],
+    urla:[
+      ['Ten for ten. The cage shook.','Not one miss. The neck is yours.','Clean from first note to last. Perfect assault.','You played like the bars weren’t there.'],
+      ['Your fingers learned the road.','The keeper took a step back.','It’s giving way. One more round like that.','The shape is settling into your hands.'],
+      ['A messy round still dents the cage.','The keeper held. It didn’t win.','Every mistake is a note you know from now on.','Hands back on the neck. Again.']
+    ],
+    urlaTaglio:['Perfect assault','Ground gained','Blow absorbed'],
+    liberazione:(nome,l)=>'Cage ' + l + ' is open: ' + nome + ' walks free. Pick another letter and go break it.',
+    spinta:(nome,l,n)=>'Cage ' + l + ' still ' + n + '% intact: ' + nome + ' is waiting behind the bars. Clean cards bend it, mistakes reinforce it.',
+    esito:(p,n,q)=>'You cleared ' + p + ' of ' + n + ' cards without a stumble on ' + (q || 'the chosen shapes') + '. Keep this selection for another round or two.',
+    riep:(c,t)=>c + (c === 1 ? ' combination' : ' combinations') + ' · ' + (t === 0 ? 'random roots all over the neck' : t + (t === 1 ? ' chosen root' : ' chosen roots')),
+    riepOff:'Enable at least one shape to start.', forma:'shape', tutteToniche:'All roots',
+    micOff:'Play it on your guitar', micOn:'Listening — play the notes', micSento:'Hearing', micNegato:'Microphone unavailable',
+    hardcore:'Hardcore', hardcoreSub:'Notes in scattered order after the root', aiuto:'Show the shape', chiede:e=>'Where is ' + e + '?', chiedeSub:'Last hit: a position of that note you have not touched yet.',
+    storia:'The story', storiaSub:'The greatest guitarists in history have been caged: C‑A‑G‑E‑D.',
+    salta:'Close', avanti:'Next', indietro:'Back', chiudiStoria:'Enter the cage', iniziaOra:'Begin the assault',
+    figAiuto1:'♪/♯ · note names or chromatic solfège',
+    figAiuto2:'eye · relights the shape for two seconds',
+    figAiuto3:'arrow · replays the sequence',
+    figAiuto4:'mic · answer by playing your guitar',
+    // PARKED — future lore screens: {k:'The keepers', t:'A devil with a pig’s face.', d:'No cage goes unguarded. Ceppo, Aspide, Grifo, Ergastolo and Dente don’t open out of pity: they yield only to someone who knows the shape better than they do.', f:'boss'}
+    slides:[
+      {k:'Prologue', t:'They have been caged.', d:'The greatest guitarists in history vanished from the stages. Nobody saw them leave: they were locked inside five cages, and those cages were given a name every guitarist knows by heart — C, A, G, E, D.', f:'cage'},
+      {k:'The cages', t:'Five letters, five prisons.', d:'A master is held inside each letter: the one who made that sound his own language. Change the chord quality and the prisoners change — fifteen masters in all.', f:'letters'},
+      {k:'The key', t:'The CAGED shape opens the lock.', d:'Nothing needs forcing: the cage is made of the same matter as the shape. As you master it the cage’s integrity drops — at zero the keeper falls and the master walks out.', f:'key'}
+    ],
+    tut:[
+      {k:'The loop', t:'Watch, listen, repeat.', d:'The first card shows the full arpeggio for two and a half seconds. Then notes light and sound one at a time, always starting on the root. When the fretboard goes dark, tap the same positions in the same order.', f:'play'},
+      {k:'The round', t:'Eight cards per assault.', d:'A round is eight sequences. Clean cards raise the shape’s percentage, mistakes lower it — and tempo (70→170 bpm), fragment length and direction, ascending or descending, all follow it.', f:'cards'},
+      {k:'The helpers', t:'You get three handholds.', d:'In the game bar: the eye relights the shape for two seconds (costing you the clean card), the arrow replays the sequence, the mic lets you answer by actually playing. The chord name opens the roots.', f:'help'},
+      {k:'Hardcore', t:'If you want to hurt the keeper.', d:'With the skull lit, notes after the root come in scattered order instead of by pitch. No melodic shortcuts: pure position memory.', f:'skull'}
+    ],
+    suonoOra:(q,s)=>'On ' + q + ' they are the masters of ' + s + '.',
+    storiaChiusa:'Each letter is a cage holding a guitarist famous for that very chord quality, and every cage has its keeper: a devil with a pig’s face. The CAGED shape is the key — master it and the cage opens. Change the quality and the prisoners change: fifteen masters in all.',
+    gabbia:'The five cages', gabbiaSub:'A guitarist is locked inside each letter, and every cage has its keeper. The CAGED shape is the key that opens it.',
+    prigioniero:'Freed', liberato:'Cage open — they’re free.',
+    ingabbiato:n=>'Cages still ' + n + '% intact',
+    prigionieri:['The Bluesman','The Slide','The Bebop','The Feedback','The Twelve-String'],
+    comeFunziona:'How it works',
+    passi:[
+      {t:'The story', d:'The greatest guitarists in history have been caged: C‑A‑G‑E‑D. Each letter is a cage with a guitarist inside, and every cage has its keeper — a devil with a pig’s face. The CAGED shape is the key: master it and the cage opens.'},
+      {t:'1 · Pick a cage', d:'Enable one or more cages and a chord quality. The round draws only from those.'},
+      {t:'2 · Photograph the shape', d:'The first card shows the full arpeggio for two and a half seconds: root in gold, the rest in blue.'},
+      {t:'3 · Listen to the sequence', d:'Notes light and sound one at a time, always starting on the root, ascending or descending.'},
+      {t:'4 · Repeat from memory', d:'The fretboard goes dark: tap the same positions in the same order. A mistake resets the combo and reveals the shape.'},
+      {t:'In-game helpers', d:'♪/♯ switches note reading, the eye relights the shape for two seconds (costs the clean card), the arrow replays the sequence. Tapping the chord name opens the roots.'},
+      {t:'How it grows', d:'Each shape has a percentage per quality: it rises with clean cards and falls with mistakes. Tempo (70→170 bpm), fragment length and direction all follow it.'},
+      {t:'Hardcore', d:'Notes after the root come in scattered order instead of by pitch.'}
+    ],
+    notazRom:'Roman degrees',
+    azzera:'Erase game data', azzeraSub:'Streak, points and mastery go back to zero',
+    azzeraTitolo:'Erase everything?', azzeraSi:'Yes, erase', annulla:'Cancel',
+    azzeraTesto:'Streak, sessions, points and mastery for every cage go back to zero. There is no way back: export the game to a file first if you need it.',
+    esporta:'Save game to file', settings:'Settings', volume:'Volume', difficolta:'Difficulty',
+    accessibilita:'Accessibility', testoGrande:'Larger text', riduciMoto:'Reduce motion',
+    altreOpzioni:'More options', profilo:'Profile', chitarrista:'Guitarist', giriFatti:'sessions done', carteViste:'sequences played',
+    padrForma:'Mastery by shape',
+    padrMedia:'Average mastery', allena:'Practise', vaiAlProfilo:'Profile',
+    profVuoto:'No rounds yet. The first session starts your streak and unlocks the per-shape percentages.',
+    profPieno:'Each shape has its own percentage per quality, so switching quality starts fresh. They rise with clean cards, fall with mistakes, and tempo and direction follow them.'
+  }
+};
+const LETTERE = ['C','A','G','E','D'];
+// un prigioniero per gabbia e per qualità: chitarristi noti proprio per quel suono
+// prigionieri d'invenzione, uno per gabbia e per genere, con la loro battuta
+const PRIGIONIERI = {
+  dom7: {
+    C:{n:'Blind Otis Rane', it:'«Una nota sola, se la tieni abbastanza, dice tutto il resto.»', en:'“One note, held long enough, says all the rest.”'},
+    A:{n:'Roxy Cadillac',   it:'«Non correre. Il blues arriva sempre mezzo secondo dopo di te.»', en:'“Don’t rush. The blues always lands half a second after you.”'},
+    G:{n:'Lightnin’ Mabry', it:'«La settima è la porta. Aprila e non chiuderla più.»', en:'“The seventh is the door. Open it and never close it.”'},
+    E:{n:'Sister Delray',   it:'«Se il piede non batte, la mano non serve a niente.»', en:'“If your foot ain’t moving, your hand is useless.”'},
+    D:{n:'Memphis Stax',    it:'«Suona meno di quello che sai. Lascia il resto al groove.»', en:'“Play less than you know. Leave the rest to the groove.”'}
+  },
+  m7: {
+    C:{n:'Wilma Vane',      it:'«Il pollice non alza la voce, e si sente più di tutti.»', en:'“The thumb never raises its voice, and everyone hears it.”'},
+    A:{n:'Nyla Chandler',  it:'«La mano destra è il vero cantante della band.»', en:'“The right hand is the real singer in the band.”'},
+    G:{n:'Greta Vine',      it:'«Ripeti la frase finché smette di essere una frase.»', en:'“Repeat the phrase until it stops being a phrase.”'},
+    E:{n:'Santo Alvarez',   it:'«Tieni la nota fino a quando comincia a bruciare.»', en:'“Hold the note until it starts to burn.”'},
+    D:{n:'Georgia Breeze',  it:'«Canta quello che suoni: se non lo puoi cantare, non lo stai suonando.»', en:'“Sing what you play. If you can’t sing it, you aren’t playing it.”'}
+  },
+  maj7: {
+    C:{n:'Joaquim Serra',   it:'«L’accordo non è un muro: è una stanza. Entraci.»', en:'“A chord isn’t a wall, it’s a room. Walk in.”'},
+    A:{n:'Joana Vero',      it:'«Piano. La bossa è una carezza, non una presa.»', en:'“Softly. Bossa is a caress, not a grip.”'},
+    G:{n:'Jimmy Harrow',    it:'«Il silenzio fra due note è la nota che conta.»', en:'“The silence between two notes is the note that counts.”'},
+    E:{n:'Patti Meadow',    it:'«Suona il paesaggio, non le posizioni.»', en:'“Play the landscape, not the positions.”'},
+    D:{n:'Baden Réal',      it:'«La settima maggiore è una domanda: non rispondere subito.»', en:'“The major seventh is a question. Don’t answer it right away.”'}
+  }
+};
+function prig(qId, l){ return (PRIGIONIERI[qId] || PRIGIONIERI.m7)[l] || {n:'', it:'', en:''}; }
+// leggende assurde: genere + il fatto che si racconta di loro
+const LORE = {
+  dom7: {
+    C:{g:{it:'Delta blues',en:'Delta blues'}, it:'Dice di aver perso la vista fissando un amplificatore che nessuno aveva ancora inventato. Ha registrato un disco intero in una cabina telefonica: si sente il gettone cadere a tempo.', en:'Claims he lost his sight staring at an amplifier nobody had invented yet. Recorded a whole album in a phone booth — you can hear the coin drop on the beat.'},
+    A:{g:{it:'Rhythm & blues',en:'Rhythm & blues'}, it:'Ha vinto una sfida a chi teneva più a lungo un bending: sette ore, poi il pubblico è andato a cena e lei era ancora sulla stessa nota. La giuria non è mai tornata.', en:'Won a bending contest by holding one note for seven hours; the crowd left for dinner and she was still on it. The judges never came back.'},
+    G:{g:{it:'Country blues',en:'Country blues'}, it:'Sostiene di aver imparato tutto a un incrocio, ma l’incrocio era un parcheggio di supermercato. Non cambia le corde dal 1974 «perché ormai sono amiche».', en:'Says he learned it all at a crossroads, except the crossroads was a supermarket car park. Hasn’t changed strings since 1974 “because they’re friends now”.'},
+    E:{g:{it:'Rock’n’roll',en:'Rock’n’roll'}, it:'Ha suonato un assolo mentre il palco crollava e ha continuato dal cratere. Il suo battito di piede è stato usato per tarare un metronomo, che poi si è rotto.', en:'Played a solo while the stage collapsed and kept going from the crater. Her foot-tapping was used to calibrate a metronome, which then broke.'},
+    D:{g:{it:'Soul di Memphis',en:'Memphis soul'}, it:'Due accordi per canzone, e con quelli ha scritto la colonna sonora di una città. Una volta ha suonato mezz’ora di silenzio: è nella top ten dei dischi più tranquilli.', en:'Two chords per song, and with those he scored an entire city. Once played thirty minutes of silence: it charted in the calmest records of the year.'}
+  },
+  m7: {
+    C:{g:{it:'Jazz col pollice',en:'Thumb jazz'}, it:'Suona solo col pollice perché il plettro le è caduto in un tombino nel 1961 e non l’ha più cercato. Ottave così pulite che i vicini le usavano per accordare il pianoforte.', en:'Plays with her thumb only because her pick fell down a drain in 1961 and she never looked for it. Octaves so clean the neighbours tuned their piano to them.'},
+    A:{g:{it:'Disco-funk',en:'Disco funk'}, it:'Il suo sedicesimo è talmente costante che una fabbrica di orologi l’ha assunta come consulente. Suona con la camicia aperta anche in Norvegia, per principio.', en:'Her sixteenths are so steady a watch factory hired her as a consultant. She plays with her shirt open even in Norway, on principle.'},
+    G:{g:{it:'Soul jazz',en:'Soul jazz'}, it:'Ha ripetuto la stessa frase per dieci minuti in un club e il barista ha dovuto chiudere per ferie. Dice che la frase, alla fine, «ha risposto».', en:'Repeated one lick for ten minutes in a club and the bartender had to take a holiday. She says that by the end the lick “answered back”.'},
+    E:{g:{it:'Latin rock',en:'Latin rock'}, it:'Tiene una nota finché l’ampli comincia a sudare. Ha aperto un concerto con un solo accordo durato ventotto minuti: due spettatori si sono sposati nel frattempo.', en:'Holds a note until the amp starts sweating. Opened a show with one chord lasting twenty-eight minutes; two people got married during it.'},
+    D:{g:{it:'Jazz-funk',en:'Jazz funk'}, it:'Canta all’unisono con la chitarra da così tanto tempo che ormai non sa più quale delle due voci sia la sua. Sorride comunque.', en:'She’s been singing in unison with her guitar so long she no longer knows which voice is hers. She smiles anyway.'}
+  },
+  maj7: {
+    C:{g:{it:'Jazz solista',en:'Solo jazz'}, it:'Suona da solo perché una volta un quartetto ha provato a seguirlo e si è perso in una sostituzione. Porta il cappello di feltro anche a letto, «per la risonanza».', en:'Plays solo because a quartet once tried to follow him and got lost in a substitution. Wears his felt hat in bed too, “for the resonance”.'},
+    A:{g:{it:'Bossa nova',en:'Bossa nova'}, it:'Canta a un volume che i microfoni scambiano per silenzio. Un fonico ha alzato il guadagno al massimo e ha registrato il rumore del mare, che non c’era.', en:'Sings at a volume microphones mistake for silence. An engineer maxed the gain and recorded the sea, which wasn’t there.'},
+    G:{g:{it:'Cool jazz',en:'Cool jazz'}, it:'Ha suonato una nota in meno di tutti e l’hanno chiamato genio. Ha passato quarant’anni a togliere note: l’ultimo disco dura undici secondi.', en:'Played one note fewer than everyone else and they called him a genius. Spent forty years removing notes; his last record lasts eleven seconds.'},
+    E:{g:{it:'Jazz contemporaneo',en:'Contemporary jazz'}, it:'Il suo riverbero non si è mai spento del tutto: in una sala prove del Midwest lo si sente ancora, la sera. Parla di paesaggi anche al bar.', en:'Her reverb never fully decayed: in a Midwest rehearsal room you can still hear it at night. She talks about landscapes even at the bar.'},
+    D:{g:{it:'Choro e bossa',en:'Choro & bossa'}, it:'Un accordo che dura mezza canzone, e la sigaretta che dura tutta la canzone. Ha scritto un pezzo in sette ottavi per sbaglio e l’ha lasciato così.', en:'One chord lasting half a song and a cigarette lasting the whole song. Wrote a piece in seven-eight by accident and left it that way.'}
+  }
+};
+function loreDi(qId, l){ return (LORE[qId] || LORE.m7)[l] || {g:{it:'',en:''}, it:'', en:''}; }
+// ritratti: ognuno è la macchietta del proprio genere
+const RITRATTI = {
+  dom7: {
+    C:{it:'Occhiali neri anche di notte, suona una nota e poi tace per otto battute.', en:'Black shades even at night, plays one note then goes quiet for eight bars.'},
+    A:{it:'Giacca di lamé, tre anelli per mano, ha chiamato la chitarra come il suo ex.', en:'Lamé jacket, three rings per hand, named her guitar after her ex.'},
+    G:{it:'Dice di aver imparato a un incrocio di campagna e non ha mai cambiato le corde.', en:'Says he learned at a country crossroads and has never changed his strings.'},
+    E:{it:'Suona in piedi, gambe larghe, non ha mai finito un assolo senza scivolare in ginocchio.', en:'Plays standing, legs wide, never finished a solo without dropping to her knees.'},
+    D:{it:'Due accordi per canzone e uno lo tiene di riserva. In studio arriva sempre in orario.', en:'Two chords per song and he keeps one in reserve. Always on time to the session.'}
+  },
+  m7: {
+    C:{it:'Suona col pollice, parla piano, guarda il manico come se dovesse scusarsi.', en:'Plays with her thumb, speaks softly, looks at the neck as if apologising.'},
+    A:{it:'Camicia aperta, sedicesimi per sempre, ha il metronomo tatuato sull’avambraccio.', en:'Shirt open, sixteenths forever, metronome tattooed on her forearm.'},
+    G:{it:'Ripete la stessa frase per dieci minuti e il pubblico ringrazia.', en:'Repeats the same lick for ten minutes and the crowd thanks her.'},
+    E:{it:'Vibrato da tre metri, incenso sull’ampli, ogni concerto è una seduta spiritica.', en:'Vibrato you can feel from ten feet, incense on the amp, every gig is a séance.'},
+    D:{it:'Canta all’unisono con la chitarra e sorride come se fosse facile.', en:'Sings in unison with her guitar and smiles like it’s easy.'}
+  },
+  maj7: {
+    C:{it:'Cappello di feltro, corde tirate, suona da solo perché nessuno gli sta dietro.', en:'Felt hat, heavy strings, plays solo because nobody keeps up.'},
+    A:{it:'Voce sussurrata, chitarra nylon, una sedia e nient’altro sul palco.', en:'Whispered voice, nylon strings, one chair and nothing else on stage.'},
+    G:{it:'Ha suonato una nota in meno di tutti e l’hanno chiamato genio.', en:'Played one note fewer than everyone else and they called him a genius.'},
+    E:{it:'Riverbero infinito, sciarpa, parla di paesaggi anche quando ordina un caffè.', en:'Endless reverb, a scarf, talks about landscapes even when ordering coffee.'},
+    D:{it:'Chitarra sul ginocchio, sigaretta accesa, un accordo che dura mezza canzone.', en:'Guitar on his knee, cigarette lit, one chord that lasts half a song.'}
+  }
+};
+function ritrattoDi(qId, l){ return (RITRATTI[qId] || RITRATTI.m7)[l] || {it:'', en:''}; }
+const SUONI = {
+  dom7: {it:'blues e rock’n’roll', en:'blues and rock’n’roll'},
+  m7:   {it:'soul e jazz-funk',    en:'soul and jazz-funk'},
+  maj7: {it:'jazz e bossa nova',   en:'jazz and bossa nova'}
+};
+// ogni gabbia ha il suo guardiano: un diavolo con la faccia da maiale
+const BOSS = {
+  C: {it:'Ceppo', en:'Ceppo'},
+  A: {it:'Aspide', en:'Aspide'},
+  G: {it:'Grifo', en:'Grifo'},
+  E: {it:'Ergastolo', en:'Ergastolo'},
+  D: {it:'Dente', en:'Dente'}
+};
+const PADL = 40, CELLW_MAX = 150, TOP = 8, SP = 40, ORO = 'hsl(42 87% 55%)', SKY = 'hsl(199 89% 48%)', CORAL = 'hsl(6 63% 55%)', CREMA = 'hsl(40 30% 90%)';
+
+class Component extends DCLogic {
+  state = {
+    schermo: 'deck', mazzo: 'storia', slide: 0, vistaStoria: false, vistoTutorial: false,
+    lingua: 'en', hardcore: false, forme: {E:true}, settings: false, volume: 70, testoGrande: false, riduciMoto: false, qualitaSel: 'm7', tonicaSel: 'tutte', forme: {E:true, G:true},
+    padronanza: {C:0, A:0, G:0, E:0, D:0},
+    streak: 0, ultimoGiorno: null, giri: 0, carteTot: 0, cartePulite: 0, puntiTot: 0, carte: [], indice: 0, fase: 'attesa',
+    accesa: -1, prese: [], errore: null, rivela: false, combo: 0, punti: 0, perfette: 0, pulita: true, onde: [], scossa: false
+  };
+  timers = [];
+
+  componentDidMount(){
+    try {
+      const salvato = JSON.parse(localStorage.getItem(CHIAVE) || 'null');
+      // le vecchie chiavi erano per sola forma: si scartano, ora contano forma+qualità
+      if(salvato && salvato.padronanza) LETTERE.forEach(l=>{ delete salvato.padronanza[l]; });
+      // una sola gabbia per volta: si tiene la prima delle selezioni salvate
+      if(salvato && salvato.forme){
+        const prima = LETTERE.find(l=>salvato.forme[l]);
+        salvato.forme = prima ? {[prima]: true} : {E:true};
+      }
+      // primo avvio: la storia apre l'app; già visto, si parte dal profilo
+      if(salvato) this.setState(Object.assign({}, salvato, salvato.vistaStoria ? {schermo:'profilo'} : {schermo:'deck', mazzo:'storia', slide:0}));
+    } catch(e){}
+    const tocco = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+    this.misura = () => {
+      const vv = window.visualViewport;
+      this.setState({vw: Math.round(vv ? vv.width : window.innerWidth), vh: Math.round(vv ? vv.height : window.innerHeight), tocco});
+    };
+    this.misura();
+    window.addEventListener('resize', this.misura);
+    window.addEventListener('orientationchange', this.misura);
+    if(window.visualViewport) window.visualViewport.addEventListener('resize', this.misura);
+  }
+  componentWillUnmount(){ this.spegniMic(); this.timers.forEach(clearTimeout); window.removeEventListener('resize', this.misura); window.removeEventListener('orientationchange', this.misura); if(window.visualViewport) window.visualViewport.removeEventListener('resize', this.misura); }
+  pulisci(){ this.timers.forEach(clearTimeout); this.timers = []; }
+  dopo(ms, fn){ this.timers.push(setTimeout(fn, ms)); }
+
+  suona(midi, tipo){
+    try{
+      if(!this.ac) this.ac = new (window.AudioContext||window.webkitAudioContext)();
+      const ac = this.ac, t = ac.currentTime;
+      if(tipo === 'errore'){
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sawtooth'; o.frequency.setValueAtTime(140, t); o.frequency.exponentialRampToValueAtTime(70, t+.3);
+        g.gain.setValueAtTime(.16 * ((this.state.volume ?? 70) / 100 || .001), t); g.gain.exponentialRampToValueAtTime(.001, t+.35);
+        o.connect(g).connect(ac.destination); o.start(t); o.stop(t+.36); return;
+      }
+      const f = 440*Math.pow(2,(midi-69)/12);
+      const vol = (this.state.volume ?? 70) / 100;
+      [1,2,3].forEach((h,i)=>{
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = i===0 ? 'triangle' : 'sine'; o.frequency.value = f*h;
+        const amp = [.22,.07,.035][i] * vol;
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(amp, t+.008); g.gain.exponentialRampToValueAtTime(.001, t+1.1);
+        o.connect(g).connect(ac.destination); o.start(t); o.stop(t+1.15);
+      });
+    }catch(e){}
+  }
+
+  get nCarte(){ return this.props.carteRound ?? 8; }
+  get vel(){ return this.props.velocitaSequenza ?? 520; }
+  // il tempo parte da 70 bpm per chi inizia e sale verso 170 bpm con la padronanza
+  velCarta(i){
+    const forme = LETTERE.filter(l=>this.state.forme[l]);
+    const pct = forme.length ? forme.reduce((a,l)=>a + this.padr(l), 0) / forme.length : 0;
+    // curva quadratica: resta lenta a lungo, accelera solo vicino alla padronanza piena
+    const f = Math.min(Math.max(pct, 0), 100) / 100;
+    const bpm = 70 + f * f * 100;
+    const perGiro = 1 - Math.min(i, this.nCarte - 1) / Math.max(1, this.nCarte - 1) * 0.15;
+    const perCombo = 1 - Math.min(this.state.combo, 6) * 0.015;
+    return Math.max(260, Math.round(60000 / bpm * perGiro * perCombo));
+  }
+  get esercizio(){ return 'arpeggio'; }
+  // la padronanza è per coppia forma + qualità
+  chiave(lettera, qId){ return lettera + '|' + (qId || this.state.qualitaSel); }
+  padr(lettera, qId){ return this.state.padronanza[this.chiave(lettera, qId)] ?? 0; }
+
+  direzionePer(lettera, qId){
+    const pct = this.padr(lettera, qId);
+    const probDiscesa = 0.3 + Math.min(pct, 100) / 100 * 0.3;
+    return Math.random() < probDiscesa ? 'discesa' : 'salita';
+  }
+  aggiornaPadronanza(lettera, pulita, qId){
+    const k = this.chiave(lettera, qId);
+    this.setState(s=>({
+      padronanza: Object.assign({}, s.padronanza, {[k]: Math.max(0, Math.min(99, (s.padronanza[k] ?? 0) + (pulita ? 6 : -4)))}),
+      carteTot: s.carteTot + 1,
+      cartePulite: s.cartePulite + (pulita ? 1 : 0)
+    }), this.salva);
+  }
+  salva = () => {
+    const s = this.state;
+    try {
+      localStorage.setItem(CHIAVE, JSON.stringify({
+        lingua:s.lingua, notazione:s.notazione, qualitaSel:s.qualitaSel, tonicaSel:s.tonicaSel, forme:s.forme,
+        volume:s.volume, testoGrande:s.testoGrande, riduciMoto:s.riduciMoto,
+        vistaStoria:s.vistaStoria, vistoTutorial:s.vistoTutorial,
+        padronanza:s.padronanza, streak:s.streak, ultimoGiorno:s.ultimoGiorno, giri:s.giri,
+        carteTot:s.carteTot, cartePulite:s.cartePulite, puntiTot:s.puntiTot
+      }));
+    } catch(e){}
+  };
+  chiudiGiro(){
+    const oggi = new Date().toISOString().slice(0,10);
+    this.setState(s=>{
+      let streak = s.streak;
+      if(s.ultimoGiorno !== oggi){
+        const ieri = new Date(Date.now() - 864e5).toISOString().slice(0,10);
+        streak = s.ultimoGiorno === ieri ? s.streak + 1 : 1;
+      }
+      return {schermo:'risultato', fase:'attesa', streak, ultimoGiorno:oggi, giri:s.giri + 1, puntiTot:s.puntiTot + s.punti};
+    }, this.salva);
+  }
+  get combinazioni(){
+    const q = QUALITA.find(x=>x.id === this.state.qualitaSel);
+    if(!q) return [];
+    return LETTERE.filter(l=>this.state.forme[l]).map(l=>({q, l}));
+  }
+
+  creaCarta(qId, lettera, pc){
+    const q0 = QUALITA.find(x=>x.id===qId);
+    const base = FORME[q0.scala ? q0.accordo : qId][lettera], r = RADICE[lettera];
+    let capo;
+    if(pc === undefined || pc === null) capo = 1 + Math.floor(Math.random()*7);
+    else {
+      // la fondamentale della forma sta al tasto base[r], non a 0
+      capo = (pc - (APERTE[r] + base[r])) % 12;
+      while(capo < 1) capo += 12;
+    }
+    const frets = base.map(v => v === null ? null : v + capo);
+    const rootMidi = APERTE[r] + frets[r];
+    let note = [];
+    const gradiSet = q0.scala || INTERVALLI[qId];
+    if(q0.scala || this.esercizio === 'arpeggio'){
+      // note del set dentro la finestra di 5 tasti della forma, in ordine ascendente
+      const inizio = Math.min.apply(null, frets.filter(v=>v!==null));
+      const pcSet = gradiSet.map(i=>(rootMidi + i) % 12);
+      const tutte = [];
+      for(let s=0;s<6;s++) for(let f=inizio; f<inizio+5; f++){
+        const midi = APERTE[s]+f;
+        if(pcSet.indexOf(midi%12) >= 0) tutte.push({s, fret:f, midi});
+      }
+      tutte.sort((a,b)=> a.midi - b.midi || a.s - b.s);
+      // un solo cella per altezza: gli unisoni fra corde renderebbero la sequenza indovinabile a caso
+      const perAltezza = [];
+      tutte.forEach(n=>{
+        const gia = perAltezza.length && perAltezza[perAltezza.length-1].midi === n.midi;
+        if(!gia) { perAltezza.push(n); return; }
+        // a pari altezza tieni la cella che appartiene alla diteggiatura della forma
+        const prec = perAltezza[perAltezza.length-1];
+        if(frets[n.s] === n.fret && frets[prec.s] !== prec.fret) perAltezza[perAltezza.length-1] = n;
+      });
+      tutte.length = 0;
+      perAltezza.forEach(n=>tutte.push(n));
+      // la tonica è sempre la PRIMA nota, in salita come in discesa; varia l'ampiezza
+      const dir = this.direzionePer(lettera, qId);
+      const spazio = i => dir === 'discesa' ? i + 1 : tutte.length - i;
+      const ampiezze = [0.5, 1, 1, 1.5, 2];
+      const lungVoluta = Math.max(4, Math.round(gradiSet.length * ampiezze[Math.floor(Math.random()*ampiezze.length)]) + 1);
+      const radici = tutte.map((n,i)=>i).filter(i=> tutte[i].midi % 12 === rootMidi % 12);
+      // solo le toniche che hanno abbastanza note davanti nella direzione scelta
+      const capienti = radici.filter(i=>spazio(i) >= 4);
+      const scelta = capienti.length ? capienti : (radici.length ? radici.slice().sort((a,b)=>spazio(b)-spazio(a)).slice(0,1) : [dir === 'discesa' ? tutte.length - 1 : 0]);
+      const da = scelta[Math.floor(Math.random()*scelta.length)];
+      const lung = Math.max(3, Math.min(lungVoluta, spazio(da)));
+      note = dir === 'discesa' ? tutte.slice(da - lung + 1, da + 1).reverse() : tutte.slice(da, da + lung);
+      if(this.state.hardcore){
+        // hardcore: la tonica resta la prima, le altre escono in ordine sparso
+        const coda = note.slice(1);
+        for(let j = coda.length - 1; j > 0; j--){ const t = Math.floor(Math.random()*(j+1)); const tmp = coda[j]; coda[j] = coda[t]; coda[t] = tmp; }
+        note = [note[0]].concat(coda);
+      }
+
+      const rootCella = note.find(n=>n.midi%12 === rootMidi%12) || note[0];
+      const nomeRad = radiceNome(rootMidi%12, qId), lett = nomeRad[0];
+      const marca = n => { const iv=(n.midi-rootMidi+144)%12; n.iv=iv; n.grado=NOMEGRADO[iv]||'?'; n.mobile=MOBILE[iv]; n.romano=ROMGRADO[iv]; n.nota=scrivi(n.midi%12, lett, iv); };
+      tutte.forEach(marca);
+      return {lettera, qId, frets, note, root:{s:rootCella.s, fret:rootCella.fret}, nome:nomeRad + q0.suff, nomeRad, inizio, capo, scala:true, boxNote:tutte, dir};
+    }
+    frets.forEach((fr,s)=>{ if(fr !== null) note.push({s, fret:fr, midi:APERTE[s]+fr}); });
+    note.sort((a,b)=> a.midi - b.midi);
+    if(this.direzionePer(lettera) === 'discesa') note.reverse();
+    const q = QUALITA.find(x=>x.id===qId);
+    const nomeRad = radiceNome(rootMidi%12, qId), lett = nomeRad[0];
+    const nome = nomeRad + q.suff;
+    note.forEach(n=>{
+      const iv = (n.midi - rootMidi + 144) % 12;
+      n.grado = NOMEGRADO[iv] || '?';
+      n.mobile = MOBILE[iv];
+      n.romano = ROMGRADO[iv];
+      n.nota = scrivi(n.midi % 12, lett, iv);
+    });
+    const mancanti = INTERVALLI[qId].map(i=>NOMEGRADO[i]).filter(g=>!note.some(n=>n.grado === g));
+    if(mancanti.length) console.warn('Forma incompleta', qId, lettera, 'manca', mancanti.join(','));
+    return {lettera, qId, frets, note, root:{s:r, fret:frets[r]}, nome, nomeRad, inizio:Math.min(...note.map(n=>n.fret)), capo};
+  }
+
+  // al primo Inizia il tutorial passa davanti al gioco
+  premiPlay = () => {
+    if(!this.state.vistoTutorial){
+      this.setState({schermo:'deck', mazzo:'tutorial', slide:0, tutorialPrima:true}, this.salva);
+      return;
+    }
+    this.nuovoGiro();
+  };
+
+  chiudiDeck = () => {
+    const st = this.state;
+    if(st.mazzo === 'tutorial' && st.tutorialPrima){
+      this.setState({vistoTutorial:true, vistaStoria:true, tutorialPrima:false}, () => { this.salva(); this.nuovoGiro(); });
+      return;
+    }
+    this.setState({schermo:'profilo', vistaStoria:true, vistoTutorial: st.mazzo === 'tutorial' ? true : st.vistoTutorial}, this.salva);
+  };
+
+  nuovoGiro = () => {
+    const combi = this.combinazioni;
+    if(!combi.length) return;
+    const sel = this.state.tonicaSel;
+    const pcFisso = sel === 'tutte' ? null : Number(sel);
+    const carte = [];
+    for(let i=0;i<this.nCarte;i++){
+      const c = combi[Math.floor(Math.random()*combi.length)];
+      carte.push(this.creaCarta(c.q.id, c.l, pcFisso));
+    }
+    this.pulisci();
+    this.setState({schermo:'gioco', carte, indice:0, combo:0, punti:0, perfette:0, onde:[]}, ()=>this.avviaCarta(0));
+  };
+
+  avviaCarta(i){
+    const primaVolta = i === 0;
+    this.setState({indice:i, fase: primaVolta ? 'anteprima' : 'guarda', accesa:-1, prese:[], errore:null, rivela:false, pulita:true, onde:[], riascolti:0});
+    if(primaVolta){ this.dopo(2600, ()=>{ this.setState({fase:'guarda'}); this.suonaCarta(i); }); return; }
+    this.suonaCarta(i);
+  }
+
+  suonaCarta(i){
+    const carta = this.state.carte[i];
+    const v = this.velCarta(i);
+    this.dopo(Math.max(260, v), ()=>{
+      carta.note.forEach((n,k)=>{
+        this.dopo(k*v, ()=>{ this.setState({accesa:k}); this.suona(n.midi); });
+        this.dopo(k*v + v*.62, ()=>this.setState(s=> s.accesa===k ? {accesa:-1} : null));
+      });
+      this.dopo(carta.note.length*v + 260, ()=>this.setState({fase:'ripeti', accesa:-1}));
+    });
+  }
+
+  // cambia la tonica in corsa: rigenera la carta corrente e quelle che restano
+  cambiaTonicaInGioco = e => {
+    const sel = e.target.value;
+    const pc = sel === 'tutte' ? null : Number(sel);
+    this.pulisci();
+    this.setState(s=>{
+      const carte = s.carte.slice();
+      for(let i = s.indice; i < carte.length; i++) carte[i] = this.creaCarta(carte[i].qId, carte[i].lettera, pc);
+      return {tonicaSel: sel, carte};
+    }, () => { this.salva(); this.avviaCarta(this.state.indice); });
+  };
+
+  // esporta i risultati come file di testo, così la partita si può conservare
+  esporta = () => {
+    const s = this.state, T = L[s.lingua] || L.en;
+    const righe = [];
+    righe.push('UNCAGED — CAGED MEMORY');
+    righe.push('');
+    righe.push('Data: ' + new Date().toLocaleString());
+    righe.push('Lingua: ' + s.lingua.toUpperCase() + '   Hardcore: ' + (s.hardcore ? 'on' : 'off'));
+    righe.push('');
+    righe.push('RISULTATI');
+    righe.push('  ' + T.streak + ': ' + s.streak);
+    righe.push('  ' + T.giriFatti + ': ' + s.giri);
+    righe.push('  ' + T.carteViste + ': ' + s.carteTot);
+    righe.push('  ' + T.acc + ': ' + (s.carteTot ? Math.round(s.cartePulite / s.carteTot * 100) : 0) + '%');
+    righe.push('  ' + T.punti + ': ' + s.puntiTot);
+    righe.push('');
+    righe.push('PADRONANZA (forma | qualita = %)');
+    const chiavi = Object.keys(s.padronanza).sort();
+    if(!chiavi.length) righe.push('  —');
+    chiavi.forEach(k=>{
+      const p = k.split('|'), q = QUALITA.find(x=>x.id === p[1]);
+      righe.push('  ' + p[0] + '  ' + ((q && (T.qual[q.id] || q.et)) || p[1] || '?') + '  ' + s.padronanza[k] + '%');
+    });
+    righe.push('');
+    righe.push('--- dati di ripristino (non modificare) ---');
+    righe.push(JSON.stringify({
+      streak:s.streak, giri:s.giri, carteTot:s.carteTot, cartePulite:s.cartePulite,
+      puntiTot:s.puntiTot, padronanza:s.padronanza, ultimoGiorno:s.ultimoGiorno
+    }));
+    const blob = new Blob([righe.join('\n')], {type:'text/plain;charset=utf-8'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'uncaged-' + new Date().toISOString().slice(0,10) + '.txt';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+  };
+
+  // ——— riconoscimento delle note dal microfono ———
+  micToggle = () => {
+    if(this.state.mic === 'ascolto' || this.state.mic === 'attesa'){ this.spegniMic(); return; }
+    this.accendiMic();
+  };
+
+  spegniMic(){
+    this.micVivo = false;
+    if(this.micStream) this.micStream.getTracks().forEach(t=>t.stop());
+    this.micStream = null;
+    this.setState({mic:'off', notaSentita:null});
+  }
+
+  async accendiMic(){
+    this.setState({mic:'attesa'});
+    try{
+      const stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false, noiseSuppression:false, autoGainControl:false}});
+      this.micStream = stream;
+      if(!this.ac) this.ac = new (window.AudioContext||window.webkitAudioContext)();
+      await this.ac.resume();
+      const src = this.ac.createMediaStreamSource(stream);
+      const an = this.ac.createAnalyser();
+      an.fftSize = 2048;
+      src.connect(an);
+      this.buf = new Float32Array(an.fftSize);
+      this.micVivo = true;
+      this.ultimoPc = -1; this.stabili = 0; this.ultimoAccetto = 0;
+      this.setState({mic:'ascolto'});
+      const giro = () => {
+        if(!this.micVivo) return;
+        an.getFloatTimeDomainData(this.buf);
+        const f = this.frequenza(this.buf, this.ac.sampleRate);
+        if(f > 0){
+          const midi = Math.round(69 + 12 * Math.log2(f / 440));
+          const pc = ((midi % 12) + 12) % 12;
+          if(pc === this.ultimoPc) this.stabili++;
+          else { this.ultimoPc = pc; this.stabili = 1; }
+          if(this.stabili === 3 && Date.now() - this.ultimoAccetto > 220){
+            this.ultimoAccetto = Date.now();
+            this.setState({notaSentita: NOMI[pc]});
+            this.tapDaMic(pc);
+          }
+        } else { this.stabili = 0; this.ultimoPc = -1; }
+        requestAnimationFrame(giro);
+      };
+      requestAnimationFrame(giro);
+    }catch(e){ this.setState({mic:'negato'}); }
+  }
+
+  // autocorrelazione: robusta su una nota singola di chitarra
+  frequenza(buf, rate){
+    let somma = 0;
+    for(let i=0;i<buf.length;i++) somma += buf[i]*buf[i];
+    const rms = Math.sqrt(somma / buf.length);
+    if(rms < 0.012) return -1;
+    let inizio = 0, fine = buf.length - 1;
+    const soglia = 0.2;
+    while(inizio < buf.length/2 && Math.abs(buf[inizio]) < soglia) inizio++;
+    while(fine > buf.length/2 && Math.abs(buf[fine]) < soglia) fine--;
+    const b = buf.slice(inizio, fine);
+    const n = b.length;
+    if(n < 256) return -1;
+    const c = new Float32Array(n).fill(0);
+    for(let i=0;i<n;i++) for(let j=0;j<n-i;j++) c[i] += b[j]*b[j+i];
+    let d = 0;
+    while(d < n-1 && c[d] > c[d+1]) d++;
+    let max = -1, pos = -1;
+    for(let i=d;i<n;i++) if(c[i] > max){ max = c[i]; pos = i; }
+    if(pos <= 0) return -1;
+    // interpolazione parabolica per affinare il periodo
+    const x1 = c[pos-1] || 0, x2 = c[pos], x3 = c[pos+1] || 0;
+    const a = (x1 + x3 - 2*x2) / 2, bb = (x3 - x1) / 2;
+    const periodo = a ? pos - bb/(2*a) : pos;
+    const f = rate / periodo;
+    return (f > 70 && f < 1400) ? f : -1;
+  }
+
+  // una nota suonata vale come tocco sulla cella attesa, se l'altezza combacia
+  tapDaMic(pc){
+    const st = this.state, carta = st.carte[st.indice];
+    if(!carta || st.fase !== 'ripeti') return;
+    const want = carta.note[st.prese.length];
+    if(!want) return;
+    const w = this.cellW || CELLW_MAX;
+    const x = PADL + (want.fret - carta.inizio)*w + w/2;
+    const y = TOP + 30 + (5-want.s)*SP;
+    if(want.midi % 12 === pc) this.tap(want.s, want.fret, x - 40, y - 21);
+    else this.sbaglia(want.s + '-' + want.fret, x - 40, y - 21);
+  }
+
+  chiediAzzera = () => this.setState({confermaAzzera:true});
+  annullaAzzera = () => this.setState({confermaAzzera:false});
+
+  azzera = () => {
+    try { localStorage.removeItem(CHIAVE); } catch(e){}
+    this.pulisci();
+    this.setState({
+      confermaAzzera:false, schermo:'deck', mazzo:'storia', slide:0,
+      padronanza:{}, streak:0, giri:0, carteTot:0, cartePulite:0, puntiTot:0, ultimoGiorno:null,
+      carte:[], indice:0, fase:'attesa', punti:0, combo:0, perfette:0,
+      vistaStoria:false, vistoTutorial:false, tutorialPrima:false
+    }, this.salva);
+  };
+
+  mostraForma = () => {
+    const st = this.state;
+    if(st.fase !== 'ripeti') return;
+    this.setState({rivela:true, pulita:false, aiuti:(st.aiuti||0)+1});
+    this.dopo(2000, ()=>this.setState({rivela:false}));
+  };
+
+  riascolta = () => {
+    const st = this.state;
+    if(st.fase !== 'ripeti' && st.fase !== 'fondamentale') return;
+    const carta = st.carte[st.indice];
+    if(!carta) return;
+    const ritorno = st.fase, v = Math.max(200, this.velCarta(st.indice) * 0.85);
+    this.setState({fase:'riascolto', accesa:-1, riascolti:(st.riascolti||0)+1});
+    carta.note.forEach((n,k)=>{
+      this.dopo(k*v, ()=>{ this.setState({accesa:k}); this.suona(n.midi); });
+      this.dopo(k*v + v*.62, ()=>this.setState(s=> s.accesa===k ? {accesa:-1} : null));
+    });
+    this.dopo(carta.note.length*v + 200, ()=>this.setState({fase:ritorno, accesa:-1}));
+  };
+
+  onda(x,y,colore){
+    if(this.state.riduciMoto) return;
+    const id = Math.random();
+    this.setState(s=>({onde:[...s.onde,{id,x,y,colore}]}));
+    this.dopo(620, ()=>this.setState(s=>({onde:s.onde.filter(o=>o.id!==id)})));
+  }
+
+  sbaglia(cellaId, x, y){
+    this.suona(0,'errore');
+    this.onda(x,y,CORAL);
+    this.setState({errore:cellaId, combo:0, pulita:false, rivela:true, scossa:true, fase:'errore'});
+    this.dopo(420, ()=>this.setState({scossa:false, errore:null}));
+    this.dopo(1500, ()=>this.prossima(false));
+  }
+
+  prossima(pulita){
+    const cartaFatta = this.state.carte[this.state.indice];
+    if(cartaFatta) this.aggiornaPadronanza(cartaFatta.lettera, pulita, cartaFatta.qId);
+    const i = this.state.indice + 1;
+    if(pulita) this.setState(s=>({perfette:s.perfette+1}));
+    if(i >= this.state.carte.length){ this.dopo(0, ()=>this.chiudiGiro()); return; }
+    this.avviaCarta(i);
+  }
+
+  tap(s, fret, x, y){
+    const st = this.state, carta = st.carte[st.indice];
+    if(!carta) return;
+    const id = s + '-' + fret;
+    if(st.fase === 'ripeti'){
+      const want = carta.note[st.prese.length];
+      if(want && want.s === s && want.fret === fret){
+        this.suona(want.midi); this.onda(x,y,SKY);
+        const prese = [...st.prese, id];
+        this.setState({prese});
+        if(prese.length === carta.note.length){
+          const bonus = 60 + carta.note.length * 10 + (st.pulita ? st.combo * 25 : 0);
+          this.dopo(300, ()=>this.setState(p=>({fase:'ok', combo:p.pulita ? p.combo+1 : 0, punti:p.punti + bonus})));
+          this.dopo(1100, ()=>this.prossima(this.state.pulita));
+        }
+      } else this.sbaglia(id, x, y);
+    }
+  }
+
+  renderVals(){
+    const st = this.state;
+    const vw = st.vw || 1200, vh = st.vh || 800;
+    // l'app riempie sempre la finestra: nessuna cornice-telefono finta sul desktop
+    const compatto = true;
+    const ritratto = vh > vw;
+    // il manico vuole larghezza: si chiede di girare solo a un dispositivo che si gira davvero
+    const verticale = st.tocco && ritratto && (st.schermo === 'gioco' || st.schermo === 'risultato');
+    const stretto = ritratto;
+    // testo più grande: riduce la tela di progetto, così tutto viene scalato in su
+    const zoom = st.testoGrande ? 1.14 : 1;
+    const baseW = Math.round((ritratto ? 390 : 844) / zoom), baseH = Math.round((ritratto ? 844 : 390) / zoom);
+    const kMax = st.tocco ? 99 : 1.5;
+    const k = Math.min(vw/baseW, vh/baseH, kMax);
+    const stilePagina = compatto
+      ? 'position:fixed;inset:0;width:100%;height:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:hsl(204 96% 6%);font-family:\'DM Sans\',system-ui,sans-serif;padding:0;gap:0;-webkit-user-select:none;user-select:none'
+      : 'min-height:100vh;padding:56px 40px 72px;display:flex;flex-direction:column;align-items:center;gap:22px;font-family:\'DM Sans\',system-ui,sans-serif;background:hsl(204 96% 6%)';
+    const sw = Math.max(baseW, Math.round(vw/k));
+    const sh = Math.max(baseH, Math.round(vh/k));
+    // geometria del manico derivata dalla tela: unica fonte di verità per disegno e microfono
+    const CELLW = Math.max(84, Math.min(CELLW_MAX, Math.floor((sw - 28 - PADL) / 5)));
+    const larghManico = PADL + CELLW * 5;
+    this.cellW = CELLW;
+    const carta = st.carte[st.indice];
+    const inizio = carta ? carta.inizio : 1;
+    const corde = [], etichetteCorde = [], celle = [], tastiLinee = [], numeriTasti = [], segnitasto = [];
+    const nomiCorde = ['E','A','D','G','B','e'];
+    for(let i=0;i<6;i++){
+      const y = TOP + 30 + (5-i)*SP;
+      corde.push({y, h: 1 + (5-i)*.34, colore: 'hsl(40 30% 90% / ' + (0.55 + (5-i)*0.07) + ')'});
+      const usata = carta ? (carta.scala || carta.frets[i] !== null) : false;
+      etichetteCorde.push({y, testo: usata ? nomiCorde[i] : '×', colore: usata ? 'hsl(40 30% 90% / .82)' : 'hsl(40 30% 90% / .3)'});
+    }
+    for(let j=0;j<=5;j++) tastiLinee.push({x: PADL + j*CELLW, w: j===0 ? 5 : 3, colore: j===0 ? 'hsl(40 30% 88% / .85)' : 'hsl(40 20% 70% / .45)'});
+    for(let j=0;j<5;j++){
+      const f = inizio + j;
+      const marker = [3,5,7,9,12].indexOf(f) >= 0;
+      numeriTasti.push({x: PADL + j*CELLW + CELLW/2, testo: ROMANI[f] || String(f), colore: marker ? ORO : 'hsl(40 30% 90% / .6)'});
+      if(marker) segnitasto.push({x: PADL + j*CELLW + CELLW/2});
+    }
+    const notazione = st.notazione || 'note';
+    if(carta){
+      for(let s=0;s<6;s++) for(let j=0;j<5;j++){
+        const fret = inizio + j, id = s + '-' + fret;
+        const x = PADL + j*CELLW + CELLW/2, y = TOP + 30 + (5-s)*SP;
+        const k = carta.note.findIndex(n=>n.s===s && n.fret===fret);
+        // fondamentale dell'accordo: guida visiva durante la sequenza
+        const isFond = k >= 0 ? carta.note[k].iv === 0 : (carta.root.s===s && carta.root.fret===fret);
+        // bersaglio della domanda finale: oro solo dopo che la domanda è stata posta
+        const isRoot = carta.sfida
+          ? (APERTE[s]+fret)%12 === carta.sfida.pc
+          : (carta.root.s===s && carta.root.fret===fret);
+        const presa = st.prese.indexOf(id) >= 0;
+        const rootPresa = st.prese.indexOf('root:'+id) >= 0;
+        let sfondo = 'transparent', bordo = '1px solid transparent', testoColore = 'transparent', ombra = 'none', ombraTesto = '0 1px 0 rgba(255,255,255,.25)', testo = k<0 ? '' : etichetta(carta.note[k], notazione);
+        if(st.errore === id){ sfondo = CORAL; bordo = '1px solid ' + CORAL; testoColore = '#fff'; ombraTesto = 'none'; testo = '✕'; }
+        else if((st.fase === 'guarda' || st.fase === 'riascolto') && k >= 0 && k === st.accesa){ sfondo = isFond ? 'hsl(42 92% 62%)' : 'hsl(199 92% 60%)'; bordo = '2px solid #fff'; testoColore = 'hsl(204 96% 8%)'; ombra = '0 0 28px ' + (isFond ? 'hsl(42 87% 55% / .7)' : 'hsl(199 89% 48% / .7)'); }
+        else if(st.fase === 'ok' && k >= 0 && isFond){ sfondo = 'hsl(42 92% 62%)'; bordo = '2px solid #fff'; testoColore = 'hsl(204 96% 8%)'; ombra = '0 0 22px hsl(42 87% 55% / .55)'; }
+        else if(presa){ sfondo = 'hsl(199 90% 62%)'; bordo = '1px solid hsl(199 90% 78%)'; testoColore = 'hsl(204 96% 8%)'; }
+        else if(st.fase === 'anteprima' && k >= 0){ sfondo = isFond ? 'hsl(42 92% 62%)' : 'hsl(199 90% 62%)'; bordo = '1px solid ' + (isFond ? 'hsl(42 94% 78%)' : 'hsl(199 92% 78%)'); testoColore = 'hsl(204 96% 8%)'; }
+        else if((st.rivela || st.fase === 'ok') && k >= 0){ sfondo = 'hsl(204 40% 22%)'; bordo = '1px dashed hsl(40 30% 92% / .75)'; testoColore = 'hsl(40 40% 96%)'; ombraTesto = 'none'; }
+        else if(st.fase === 'fondamentale' && k >= 0 && !presa){ sfondo = 'hsl(204 45% 18%)'; bordo = '1px solid hsl(40 30% 90% / .38)'; testoColore = 'transparent'; }
+        // il rilievo bianco vale solo dove il glifo è scuro: su testo trasparente lascerebbe un fantasma
+        if(testoColore === 'transparent' || testoColore === '#fff') ombraTesto = 'none';
+        celle.push({id, x, y, w: CELLW - 28, ombraTesto, dim: '13px', sfondo, bordo, testoColore, ombra, testo, onTap: () => this.tap(s, fret, x - 40, y - 21)});
+      }
+    }
+
+const T = L[st.lingua] || L.en;
+    const salendo = !carta || carta.dir !== 'discesa';
+    const versoIt = salendo ? ' Sale dal grave all’acuto.' : ' Scende dall’acuto al grave.';
+    const versoEn = salendo ? ' It climbs from low to high.' : ' It falls from high to low.';
+    const testiFase = Object.assign({}, T.fasi);
+    const base = st.hardcore ? T.fasi.guardaHard : T.fasi.guarda;
+    testiFase.guarda = [base[0], base[1] + (st.lingua === 'en' ? versoEn : versoIt)];
+
+    const t = testiFase[st.fase] || testiFase.attesa;
+    const puoAiuto = st.fase === 'ripeti';
+    const stileAiuto = 'display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border-radius:11px;padding:0;font-family:inherit;border:1px solid ' + (puoAiuto ? 'hsl(42 87% 55% / .5)' : 'hsl(40 30% 90% / .12)') + ';background:transparent;color:' + (puoAiuto ? ORO : 'hsl(40 30% 90% / .25)') + ';cursor:' + (puoAiuto ? 'pointer' : 'default');
+    const coloriFase = {guarda: SKY, riascolto: SKY, anteprima: ORO, ripeti: CREMA, fondamentale: ORO, ok: 'hsl(140 45% 62%)', errore: CORAL, attesa: CREMA};
+    const puoRiascoltare = st.fase === 'ripeti' || st.fase === 'fondamentale';
+    const stileRiascolta = 'display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border-radius:11px;padding:0;font-family:inherit;border:1px solid ' + (puoRiascoltare ? 'hsl(199 89% 48% / .55)' : 'hsl(40 30% 90% / .12)') + ';background:' + (puoRiascoltare ? 'hsl(199 89% 48% / .14)' : 'transparent') + ';color:' + (puoRiascoltare ? 'hsl(199 89% 68%)' : 'hsl(40 30% 90% / .25)') + ';cursor:' + (puoRiascoltare ? 'pointer' : 'default');
+
+    const pips = st.carte.map((c,i)=>({colore: i < st.indice ? 'hsl(199 89% 48%)' : (i === st.indice ? ORO : 'hsl(40 30% 90% / .16)')}));
+    const usateGiro = {};
+    st.carte.slice(0, st.indice + 1).forEach(c=>{ usateGiro[c.lettera] = true; });
+
+    const pctBase = {};
+    LETTERE.forEach(l=>{ pctBase[l] = this.padr(l); });
+    const stileSelect = 'box-sizing:border-box;width:100%;padding:10px 12px;border-radius:11px;border:1px solid hsl(40 25% 78%);background:#fff;color:hsl(204 96% 10%);font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;appearance:none;background-image:linear-gradient(45deg,transparent 50%,hsl(204 96% 10% / .45) 50%),linear-gradient(135deg,hsl(204 96% 10% / .45) 50%,transparent 50%);background-position:calc(100% - 17px) 18px,calc(100% - 12px) 18px;background-size:5px 5px,5px 5px;background-repeat:no-repeat';
+    const stileSelectScuro = 'box-sizing:border-box;width:100%;padding:8px 12px;border-radius:10px;border:1px solid hsl(40 30% 90% / .2);background:hsl(204 96% 6%);color:hsl(40 30% 90%);font-family:inherit;font-weight:700;font-size:13px;cursor:pointer;appearance:none;background-image:linear-gradient(45deg,transparent 50%,hsl(40 30% 90% / .68) 50%),linear-gradient(135deg,hsl(40 30% 90% / .68) 50%,transparent 50%);background-position:calc(100% - 17px) 16px,calc(100% - 12px) 16px;background-size:5px 5px,5px 5px;background-repeat:no-repeat';
+    const opzQualita = QUALITA.map(q=>({v:q.id, et:q.suff}));
+    const cambiaQualita = e => this.setState({qualitaSel: e.target.value}, this.salva);
+    const formeCards = LETTERE.map(l=>{
+      const on = !!st.forme[l], pct = pctBase[l];
+      return {
+        lettera:l, pct, on,
+        stile: 'flex:1;display:flex;flex-direction:column;gap:6px;padding:9px 9px 8px;border-radius:12px;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s;border:1px solid ' + (on ? 'hsl(204 96% 10%)' : 'hsl(40 25% 80%)') + ';background:' + (on ? '#fff' : 'transparent'),
+        coloreLettera: on ? 'hsl(204 96% 10%)' : 'hsl(204 96% 10% / .32)',
+        colorePct: on ? 'hsl(204 96% 10% / .68)' : 'hsl(204 96% 10% / .28)',
+        barraSfondo: on ? 'hsl(40 25% 84%)' : 'hsl(40 25% 86% / .6)',
+        barra: on ? (pct > 80 ? ORO : pct > 55 ? SKY : CORAL) : 'hsl(40 25% 76%)',
+        stileScuro: 'flex:1;display:flex;flex-direction:column;gap:6px;padding:9px 10px 8px;border-radius:12px;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s;border:1px solid ' + (on ? 'hsl(42 87% 55% / .55)' : 'hsl(40 30% 90% / .14)') + ';background:' + (on ? 'hsl(42 87% 55% / .12)' : 'transparent'),
+        coloreLetteraScuro: on ? 'hsl(40 30% 92%)' : 'hsl(40 30% 90% / .38)',
+        colorePctScuro: on ? 'hsl(40 30% 90% / .7)' : 'hsl(40 30% 90% / .34)',
+        boss: BOSS[l][st.lingua] || BOSS[l].it,
+        prigioniero: prig(st.qualitaSel, l).n,
+        battuta: prig(st.qualitaSel, l)[st.lingua] || prig(st.qualitaSel, l).it,
+        colorePrigioniero: pct >= 99 ? 'hsl(140 45% 66%)' : on ? 'hsl(42 88% 68%)' : 'hsl(40 30% 90% / .34)',
+        vita: 100 - pct,
+        stileStoria: 'display:flex;flex-direction:column;gap:11px;padding:15px 17px;border-radius:14px;background:hsl(204 96% 6%);border:1px solid ' + (pct >= 99 ? 'hsl(140 45% 55% / .45)' : 'hsl(40 30% 90% / .1)'),
+        testoStato: pct >= 99 ? T.liberato : T.ingabbiato(100 - pct),
+        stileSbarra: 'flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;padding:11px 6px 10px;border-radius:14px;cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s;border:1px solid ' + (on ? 'hsl(6 63% 58%)' : 'hsl(40 30% 90% / .14)') + ';background:' + (on ? 'hsl(6 63% 55% / .14)' : 'hsl(204 96% 6% / .5)'),
+        coloreBoss: pct >= 99 ? 'hsl(140 45% 58%)' : on ? 'hsl(6 63% 68%)' : 'hsl(40 30% 90% / .34)',
+        coloreLetteraSbarra: pct >= 99 ? 'hsl(140 45% 66%)' : on ? 'hsl(40 30% 94%)' : 'hsl(40 30% 90% / .45)',
+        vitaColore: pct >= 99 ? 'hsl(140 45% 55%)' : pct > 55 ? ORO : CORAL,
+        statoBoss: pct >= 99 ? '✓' : (100 - pct) + '%',
+        onTap: () => this.setState({forme: {[l]: true}}, this.salva)
+      };
+    });
+    const qSel = QUALITA.find(x=>x.id === st.qualitaSel);
+    const opzToniche = [{v:'tutte', et:T.tutteToniche}].concat(
+      NOMI.map((n,pc)=>({v:String(pc), et:radiceNome(pc, st.qualitaSel) + (qSel ? qSel.suff : '')}))
+    );
+    const cambiaTonica = e => this.setState({tonicaSel: e.target.value}, this.salva);
+    const nToniche = st.tonicaSel === 'tutte' ? 0 : 1;
+
+    const opzNotazione = NOTAZIONI.map(n=>({v:n.id, et:T.notaz[n.id]}));
+    const cambiaNotazione = e => this.setState({notazione: e.target.value}, this.salva);
+
+    const selForma = LETTERE.find(l=>st.forme[l]) || 'E';
+    const mazzo = st.mazzo || 'storia';
+    const mazzoSlides = (mazzo === 'tutorial' ? T.tut : T.slides) || [];
+    const iSlide = Math.min(st.slide || 0, Math.max(0, mazzoSlides.length - 1));
+    const slideCorrente = mazzoSlides[iSlide] || {};
+    const figura = slideCorrente.f;
+    const tabOn = 'padding:5px 13px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:11px;white-space:nowrap;background:hsl(40 30% 90% / .92);color:hsl(204 96% 10%)';
+    const tabOff = 'padding:5px 13px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:11px;white-space:nowrap;background:transparent;color:hsl(40 30% 90% / .6)';
+
+    const combi = this.combinazioni;
+    const pronto = combi.length > 0;
+    const elenco = combi.map(c=>c.l).join(' · ');
+    const riepilogo = pronto ? T.riep(combi.length, nToniche) + ' — ' + T.forma + ' ' + elenco : T.riepOff;
+
+    const perfette = st.perfette;
+    // urla rock a fine giro: la forma più bassa del giro è la gabbia che hai colpito
+    const formeGiro = LETTERE.filter(l=>st.forme[l]);
+    const bersaglio = formeGiro.slice().sort((a,b)=>this.padr(a) - this.padr(b))[0] || 'E';
+    const pctBers = this.padr(bersaglio);
+    const pers = prig(st.qualitaSel, bersaglio);
+    const nomePrig = pers.n;
+    const battutaPrig = pers[st.lingua] || pers.it;
+    const fasciaEsito = perfette === this.nCarte ? 0 : perfette >= this.nCarte * 0.6 ? 1 : 2;
+    const urla = T.urla[fasciaEsito];
+    const titolo = urla[st.giri % urla.length];
+    const chiusa = pctBers >= 99
+      ? T.liberazione(nomePrig, bersaglio)
+      : T.spinta(nomePrig, bersaglio, 100 - pctBers);
+    const lingue = [{id:'it', et:'IT'}, {id:'en', et:'EN'}].map(x=>({
+      et:x.et,
+      stile: 'padding:3px 9px;border-radius:6px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:10px;letter-spacing:.06em;background:' + (st.lingua === x.id ? 'hsl(40 30% 90% / .9)' : 'transparent') + ';color:' + (st.lingua === x.id ? 'hsl(204 96% 10%)' : 'hsl(40 30% 90% / .72)'),
+      onTap: () => this.setState({lingua:x.id})
+    }));
+
+    const colonna = ritratto;
+    // chrome derivato dalla tela: box-sizing incluso, così nulla eccede sw
+    const PB = sw < 800 ? 22 : 46;
+    const PI = sw < 800 ? 16 : 30;
+    const wPannello = Math.round(Math.min(340, sw * 0.42));
+    const layoutProfilo = 'position:absolute;inset:0;display:flex;flex-direction:' + (colonna ? 'column' : 'row') + ';overflow:auto;background:hsl(204 96% 10%);color:hsl(40 30% 90%)';
+    const layoutPannello = colonna
+      ? 'box-sizing:border-box;width:100%;flex:none;padding:26px 26px 22px;display:flex;flex-direction:column;gap:18px;border-bottom:1px solid hsl(40 30% 90% / .1)'
+      : 'box-sizing:border-box;width:' + wPannello + 'px;flex:none;min-width:0;padding:26px ' + PI + 'px 22px ' + PB + 'px;display:flex;flex-direction:column;justify-content:flex-start;gap:18px;border-right:1px solid hsl(40 30% 90% / .1)';
+    const layoutDestra = colonna
+      ? 'box-sizing:border-box;flex:1;min-width:0;padding:22px 26px 26px;display:flex;flex-direction:column;gap:22px'
+      : 'box-sizing:border-box;flex:1;min-width:0;padding:26px ' + PB + 'px 22px ' + PI + 'px;display:flex;flex-direction:column;justify-content:flex-start;gap:18px';
+    const layoutHome = 'position:absolute;inset:0;display:flex;flex-direction:' + (colonna ? 'column' : 'row') + ';overflow:auto;background:hsl(40 30% 90%)';
+    const layoutHomePannello = colonna
+      ? 'box-sizing:border-box;width:100%;flex:none;padding:24px 26px 22px;display:flex;flex-direction:column;gap:12px;background:hsl(204 96% 10%);color:hsl(40 30% 90%)'
+      : 'width:330px;flex:none;padding:18px 30px 16px 46px;display:flex;flex-direction:column;justify-content:flex-start;gap:18px;overflow:auto;background:hsl(204 96% 10%);color:hsl(40 30% 90%)';
+    const layoutHomeDestra = colonna
+      ? 'box-sizing:border-box;flex:1;min-width:0;padding:22px 26px 26px;display:flex;flex-direction:column;gap:20px'
+      : 'flex:1;padding:20px 46px 18px 30px;display:flex;flex-direction:column;justify-content:flex-start;gap:16px';
+    const stileTelaio = compatto
+      ? 'width:' + Math.round(sw*k) + 'px;height:' + Math.round(sh*k) + 'px;padding:0;border-radius:0;background:transparent;position:relative;box-shadow:none'
+      : 'width:868px;height:414px;background:#08090c;border-radius:58px;padding:12px;position:relative;box-shadow:0 50px 100px rgba(0,0,0,.6),0 0 0 2px hsl(40 30% 90% / .08)';
+    const stileSchermo = 'width:' + sw + 'px;height:' + sh + 'px;border-radius:' + (compatto ? '0' : '46px') + ';overflow:hidden;position:relative;background:hsl(40 30% 90%);transform:scale(' + k + ');transform-origin:top left';
+
+    const accuratezza = st.carteTot ? Math.round(st.cartePulite / st.carteTot * 100) + '%' : '0%';
+    const mediaPadr = Math.round(LETTERE.reduce((a,l)=>a + this.padr(l), 0) / LETTERE.length);
+    const livelli = st.lingua === 'en'
+      ? ['Fresh start','Finding the shapes','Shapes taking hold','Fluent on the neck']
+      : ['Punto di partenza','Cerchi le forme','Le forme tengono','Manico sciolto'];
+    const livello = mediaPadr < 5 ? livelli[0] : mediaPadr < 35 ? livelli[1] : mediaPadr < 70 ? livelli[2] : livelli[3];
+
+    return {
+      cromo: !compatto, verticale, stilePagina, stileTelaio, stileSchermo,
+      animRisultato: st.riduciMoto ? 'none' : 'cagedRise .5s ease-out both',
+      animBurst: st.riduciMoto ? 'none' : 'cagedBurst 1.4s ease-out forwards',
+      layoutProfilo, layoutPannello, layoutDestra, layoutHome, layoutHomePannello, layoutHomeDestra,
+      padBordo: PB, larghFigura: Math.round(Math.min(318, Math.max(190, sw * 0.36))),
+      aProfilo: st.schermo === 'profilo',
+      vaiHome: () => this.setState({schermo:'home'}),
+      vaiProfilo: () => this.setState({schermo:'profilo'}),
+      streak: st.streak, giri: st.giri, carteTot: st.carteTot, accuratezza, mediaPadr, livello,
+      puntiTot: st.puntiTot,
+      atHome: st.schermo === 'home', inGioco: st.schermo === 'gioco', aRisultato: st.schermo === 'risultato',
+      nCarte: this.nCarte, formeCards, riepilogo,
+      hardcoreOn: !!st.hardcore, tHardcore: T.hardcore, tHardcoreSub: T.hardcoreSub,
+      cambiaHardcore: () => this.setState(s=>({hardcore: !s.hardcore}), this.salva),
+      stileTeschio: 'display:flex;align-items:center;justify-content:center;width:62px;height:62px;flex:none;border-radius:16px;padding:0;cursor:pointer;font-family:inherit;transition:background .15s,border-color .15s;border:1px solid ' + (st.hardcore ? 'hsl(6 63% 55%)' : 'hsl(40 30% 90% / .22)') + ';background:' + (st.hardcore ? 'hsl(6 63% 55%)' : 'transparent') + ';color:' + (st.hardcore ? '#fff' : 'hsl(40 30% 90% / .55)'),
+      stileHardcore: 'display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:12px;cursor:pointer;font-family:inherit;text-align:left;border:1px solid ' + (st.hardcore ? 'hsl(6 63% 55%)' : 'hsl(40 25% 80%)') + ';background:' + (st.hardcore ? 'hsl(6 63% 55% / .1)' : 'transparent'),
+      stileHardcoreBox: 'width:34px;height:20px;flex:none;border-radius:10px;position:relative;transition:background .15s;background:' + (st.hardcore ? 'hsl(6 63% 55%)' : 'hsl(40 25% 78%)'),
+      stileHardcorePallino: 'position:absolute;top:2px;left:' + (st.hardcore ? '16px' : '2px') + ';width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s',
+      stileSelect, stileSelectScuro,
+      opzQualita, cambiaQualita, valQualita: st.qualitaSel,
+      opzToniche, cambiaTonica, valTonica: st.tonicaSel,
+      cambiaTonicaInGioco: this.cambiaTonicaInGioco,
+      stileSelectAccordo: 'position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;appearance:none;border:none;font-family:inherit',
+      opzNotazione, cambiaNotazione, valNotazione: notazione,
+      frecciaCarta: carta ? (carta.dir === 'discesa' ? '↓' : '↑') : '',
+      testoCta: pronto ? T.cta(this.nCarte) : T.ctaOff,
+      lingue,
+      tSub:T.sub, tRuotaTitolo:T.ruotaT, tRuotaTesto:T.ruotaP, tOggi:T.oggi, tTitolo:T.titolo, tIntro:T.intro,
+      esporta: this.esporta, tEsporta: T.esporta,
+      chiediAzzera: this.chiediAzzera, annullaAzzera: this.annullaAzzera, azzera: this.azzera,
+      confermaAperta: !!st.confermaAzzera,
+      tAzzera: T.azzera, tAzzeraSub: T.azzeraSub,
+      tAzzeraTitolo: T.azzeraTitolo, tAzzeraTesto: T.azzeraTesto,
+      tAzzeraSi: T.azzeraSi, tAnnulla: T.annulla,
+      stileAzzera: 'grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 20px;border-radius:14px;cursor:pointer;font-family:inherit;text-align:left;border:1px solid hsl(6 63% 55% / .35);background:transparent;color:hsl(6 63% 68%)',
+      aSettings: st.schermo === 'settings', tSettings: T.settings, tDifficolta: T.difficolta,
+      apriSettings: () => { this.pulisci(); this.spegniMic(); this.setState({schermo:'settings', fase:'attesa'}); },
+      tComeFunziona: T.comeFunziona, tStoria: T.storia,
+      apriAiuto: () => this.setState({schermo:'deck', mazzo:'tutorial', slide:0}),
+      stileIconaAiuto: st.schermo === 'deck' && mazzo === 'tutorial'
+        ? 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(42 87% 55% / .6);background:hsl(42 87% 55% / .16);color:' + ORO
+        : 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90% / .8)',
+      stileIcona: 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90% / .8)',
+      stileIconaAttiva: 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(42 87% 55% / .6);background:hsl(42 87% 55% / .16);color:' + ORO,
+      stileIconaSettings: st.schermo === 'settings'
+        ? 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(42 87% 55% / .6);background:hsl(42 87% 55% / .16);color:' + ORO
+        : 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90% / .8)',
+      volume: st.volume ?? 70, tVolume: T.volume,
+      cambiaVolume: e => this.setState({volume: Number(e.target.value)}, this.salva),
+      tAccessibilita: T.accessibilita, tTestoGrande: T.testoGrande, tRiduciMoto: T.riduciMoto,
+      testoGrandeOn: !!st.testoGrande, riduciMotoOn: !!st.riduciMoto,
+      cambiaTestoGrande: () => this.setState(s=>({testoGrande: !s.testoGrande}), this.salva),
+      cambiaRiduciMoto: () => this.setState(s=>({riduciMoto: !s.riduciMoto}), this.salva),
+      stileSw: on => on,
+      swTestoBox: 'width:34px;height:20px;flex:none;border-radius:10px;position:relative;transition:background .15s;background:' + (st.testoGrande ? ORO : 'hsl(40 30% 90% / .2)'),
+      swTestoPal: 'position:absolute;top:2px;left:' + (st.testoGrande ? '16px' : '2px') + ';width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s',
+      swHardBox: 'width:34px;height:20px;flex:none;border-radius:10px;position:relative;transition:background .15s;background:' + (st.hardcore ? 'hsl(6 63% 55%)' : 'hsl(40 30% 90% / .2)'),
+      swHardPal: 'position:absolute;top:2px;left:' + (st.hardcore ? '16px' : '2px') + ';width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s',
+      swMotoBox: 'width:34px;height:20px;flex:none;border-radius:10px;position:relative;transition:background .15s;background:' + (st.riduciMoto ? ORO : 'hsl(40 30% 90% / .2)'),
+      swMotoPal: 'position:absolute;top:2px;left:' + (st.riduciMoto ? '16px' : '2px') + ';width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s',
+      aStoria: st.schermo === 'storia', tStoriaChiusa: T.storiaChiusa,
+      tStoriaSub: T.storiaSub + ' ' + T.suonoOra((T.qual[st.qualitaSel] || '') , (SUONI[st.qualitaSel] || SUONI.m7)[st.lingua] || (SUONI[st.qualitaSel] || SUONI.m7).it),
+      apriStoria: () => this.setState({schermo:'deck', mazzo:'storia', slide:0}),
+      apriAiutoDeck: () => this.setState({schermo:'deck', mazzo:'tutorial', slide:0}),
+      tSalta: T.salta, tAvanti: T.avanti, tIndietro: T.indietro, tChiudiStoria: T.chiudiStoria,
+      aDeck: st.schermo === 'deck', slideCorrente, etSlide: (iSlide + 1) + ' / ' + mazzoSlides.length,
+      ultimaSlide: iSlide >= mazzoSlides.length - 1,
+      nonUltimaSlide: iSlide < mazzoSlides.length - 1,
+      avantiSlide: () => this.setState(s=>{
+        const arr = ((s.mazzo || 'storia') === 'tutorial' ? (L[s.lingua]||L.en).tut : (L[s.lingua]||L.en).slides) || [];
+        return {slide: Math.min((s.slide||0) + 1, arr.length - 1)};
+      }),
+      indietroSlide: () => this.setState(s=>({slide: Math.max((s.slide||0) - 1, 0)})),
+      puntiniSlide: mazzoSlides.map((s,i)=>({
+        stile: 'width:' + (i === iSlide ? '20px' : '7px') + ';height:7px;border-radius:4px;border:none;padding:0;cursor:pointer;transition:width .2s,background .2s;background:' + (i === iSlide ? ORO : 'hsl(40 30% 90% / .25)'),
+        onTap: () => this.setState({slide:i})
+      })),
+      vaiStoria: () => this.setState({mazzo:'storia', slide:0}),
+      vaiTutorial: () => this.setState({mazzo:'tutorial', slide:0}),
+      stileTabStoria: mazzo === 'storia' ? tabOn : tabOff,
+      stileTabTutorial: mazzo === 'tutorial' ? tabOn : tabOff,
+      figTasti: [0,1,2,3,4].map(i=>({x: 14 + i*60})),
+      figCorde: [0,1,2,3,4,5].map(i=>({y: 22 + i*22})),
+      figCage: figura === 'cage', figLetters: figura === 'letters', figBoss: figura === 'boss',
+      figKey: figura === 'key', figPlay: figura === 'play', figCards: figura === 'cards',
+      figHelp: figura === 'help', figSkull: figura === 'skull',
+      figTasti: [0,1,2,3,4].map(i=>({x: 14 + i*60})),
+      figCorde: [0,1,2,3,4,5].map(i=>({y: 22 + i*22})),
+      figNote: [
+        {x:44, y:110, testo:'R', sfondo:'hsl(42 92% 62%)', testoColore:'hsl(204 96% 8%)', bordo:'#fff'},
+        {x:104, y:88, testo:'3', sfondo:'hsl(199 90% 62%)', testoColore:'hsl(204 96% 8%)', bordo:'hsl(199 92% 78%)'},
+        {x:164, y:66, testo:'5', sfondo:'hsl(204 45% 20%)', testoColore:'hsl(40 30% 90% / .8)', bordo:'hsl(40 30% 90% / .35)'},
+        {x:224, y:44, testo:'7', sfondo:'hsl(204 45% 20%)', testoColore:'hsl(40 30% 90% / .8)', bordo:'hsl(40 30% 90% / .35)'}
+      ],
+      figPips: Array.from({length:8}, (_,i)=>({colore: i < 3 ? 'hsl(199 89% 55%)' : i === 3 ? ORO : 'hsl(40 30% 90% / .16)'})),
+      figAiuti: [
+        {icona:'◉', colore:'hsl(42 88% 66%)', testo:T.figAiuto2},
+        {icona:'↺', colore:'hsl(199 89% 68%)', testo:T.figAiuto3},
+        {icona:'◎', colore:'hsl(140 60% 65%)', testo:T.figAiuto4}
+      ],
+      figSparso: [{n:'R'},{n:'5'},{n:'♭3'},{n:'R'},{n:'♭7'}],
+      stileIconaStoria: st.schermo === 'deck' && mazzo === 'storia'
+        ? 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(42 87% 55% / .6);background:hsl(42 87% 55% / .16);color:' + ORO
+        : 'display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex:none;border-radius:9px;padding:0;cursor:pointer;border:1px solid hsl(40 30% 90% / .22);background:transparent;color:hsl(40 30% 90% / .8)',
+      tGabbia: T.gabbia, tGabbiaSub: T.gabbiaSub, tPrigioniero: T.prigioniero,
+      nLiberati: LETTERE.filter(l=>this.padr(l) >= 99).length,
+      selPrigioniero: prig(st.qualitaSel, selForma).n,
+      selRitratto: ritrattoDi(st.qualitaSel, selForma)[st.lingua] || ritrattoDi(st.qualitaSel, selForma).it,
+      selBattuta: prig(st.qualitaSel, selForma)[st.lingua] || prig(st.qualitaSel, selForma).it,
+      selGenere: loreDi(st.qualitaSel, selForma).g[st.lingua] || loreDi(st.qualitaSel, selForma).g.it,
+      selLore: loreDi(st.qualitaSel, selForma)[st.lingua] || loreDi(st.qualitaSel, selForma).it,
+      selEtichetta: T.forma + ' ' + selForma + ' · ' + (this.padr(selForma) >= 99 ? T.liberato : T.ingabbiato(100 - this.padr(selForma))),
+      liberato: mediaPadr >= 99,
+      tStatoGabbia: mediaPadr >= 99 ? T.liberato : T.ingabbiato(Math.round(100 - mediaPadr)),
+      tAltreOpzioni: T.altreOpzioni, tStreak:T.streak, tStreakSub: st.streak > 0 ? T.streakSub(st.streak) : T.streakZero, tAccuratezza:T.acc, tLettura:T.lettura, tQualita:T.qualita, tToniche:T.toniche,
+      tTutte:T.tutte, tForme:T.forme, tRipassa:T.ripassa, tPie:T.pie, tCombo:T.combo,
+      tGiroFatto:T.giroFatto, tPunti:T.punti, tCartePulite:T.pulite, tFormeIncontrate:T.formeInc,
+      tAltroGiro:T.altro, tChiudi:T.chiudi,
+      tProfilo:T.profilo, tChitarrista:T.chitarrista, tGiriFatti:T.giriFatti, tCarteViste:T.carteViste,
+      tPadrMedia:T.padrMedia, nomeQualita: qSel ? qSel.suff : '', tAllena:T.allena, tVaiAlProfilo:T.vaiAlProfilo, tPadrForma:T.padrForma,
+      tNotaProfilo: st.carteTot ? T.profPieno : T.profVuoto,
+      metaCarta: carta ? T.pos + ' ' + (ROMANI[carta.inizio] || carta.inizio) + ' · ' + carta.note.length + ' ' + T.note + ' ' + (carta.dir === 'discesa' ? '↓' : '↑') + ' · ' + Math.round(60000 / this.velCarta(st.indice)) + ' bpm' : '',
+      stileCta: 'flex:1;min-height:46px;border:none;border-radius:13px;font-family:inherit;font-weight:700;font-size:15px;' + (pronto
+        ? 'background:hsl(6 63% 55%);color:#fff;cursor:pointer;box-shadow:0 8px 20px hsl(6 63% 55% / .32)'
+        : 'background:hsl(40 25% 84%);color:hsl(204 96% 10% / .38);cursor:not-allowed;box-shadow:none'),
+      iniziaGiro: this.premiPlay,
+      riprendiGiro: this.nuovoGiro,
+      chiudiDeck: this.chiudiDeck,
+      tFineDeck: (mazzo === 'tutorial' && st.tutorialPrima) ? T.iniziaOra : T.chiudiStoria,
+      tornaHome: () => { this.pulisci(); this.setState({schermo:'profilo', fase:'attesa'}); },
+      pips, contatoreCarte: (st.indice+1) + '/' + this.nCarte,
+      combo: st.combo, punti: st.punti, perfette,
+      comboBg: st.combo > 0 ? 'hsl(42 87% 55% / .16)' : 'hsl(40 30% 90% / .07)',
+      comboColore: st.combo > 0 ? ORO : 'hsl(40 30% 90% / .62)',
+      etichettaForma: T.forma + ' ' + (carta ? carta.lettera : '—'),
+      accordoCorrente: carta ? carta.nome : '—',
+      posizioneCorrente: carta ? (ROMANI[carta.inizio] || carta.inizio) : '—',
+      nNote: carta ? carta.note.length : 0,
+      istruzione: t[0], sottoIstruzione: t[1], istruzioneColore: coloriFase[st.fase] || CREMA,
+      riascolta: this.riascolta, stileRiascolta,
+      mostraForma: this.mostraForma, stileAiuto, tAiuto: T.aiuto,
+      micToggle: this.micToggle,
+      tMic: st.mic === 'negato' ? T.micNegato : st.mic === 'ascolto' ? (st.notaSentita ? T.micSento + ' ' + st.notaSentita : T.micOn) : T.micOff,
+      stileMic: 'display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;border-radius:11px;padding:0;cursor:pointer;font-family:inherit;border:1px solid ' + (st.mic === 'ascolto' ? 'hsl(140 55% 55%)' : st.mic === 'negato' ? CORAL : 'hsl(40 30% 90% / .2)') + ';background:' + (st.mic === 'ascolto' ? 'hsl(140 55% 45% / .2)' : 'transparent') + ';color:' + (st.mic === 'ascolto' ? 'hsl(140 60% 70%)' : st.mic === 'negato' ? CORAL : 'hsl(40 30% 90% / .7)'),
+      micAscolta: st.mic === 'ascolto',
+      notaSentita: st.notaSentita || '·',
+      cambiaNotazA: () => this.setState({notazione:'note'}, this.salva),
+      cambiaNotazB: () => this.setState({notazione:'mobile'}, this.salva),
+      cambiaNotazC: () => this.setState({notazione:'romani'}, this.salva),
+      titoloNotaz: T.notaz[notazione] || T.notazRom,
+      tLettura: T.lettura, tLetturaSub: T.notaz[notazione] || T.notazRom,
+      tNotazNote: T.notaz.note, tNotazCrom: T.notaz.mobile, tNotazRom: T.notazRom,
+      stileNotazA: 'display:flex;align-items:center;justify-content:center;width:40px;height:34px;border:none;border-radius:9px;font-family:inherit;font-weight:700;font-size:16px;line-height:1;padding:0;cursor:pointer;transition:background .15s;background:' + (notazione === 'note' ? 'hsl(40 30% 90% / .92)' : 'transparent') + ';color:' + (notazione === 'note' ? 'hsl(204 96% 10%)' : 'hsl(40 30% 90% / .62)'),
+      stileNotazB: 'display:flex;align-items:center;justify-content:center;width:40px;height:34px;border:none;border-radius:9px;font-family:inherit;font-weight:700;font-size:17px;line-height:1;padding:0;cursor:pointer;transition:background .15s;background:' + (notazione === 'mobile' ? ORO : 'transparent') + ';color:' + (notazione === 'mobile' ? 'hsl(204 96% 10%)' : 'hsl(40 30% 90% / .62)'),
+      stileNotazC: 'display:flex;align-items:center;justify-content:center;width:40px;height:34px;border:none;border-radius:9px;font-family:inherit;font-weight:800;font-size:13px;line-height:1;padding:0;cursor:pointer;transition:background .15s;background:' + (notazione === 'romani' ? 'hsl(6 63% 58%)' : 'transparent') + ';color:' + (notazione === 'romani' ? '#fff' : 'hsl(40 30% 90% / .62)'),
+      testoRiascolta: (st.riascolti||0) > 0 ? T.riascolta + ' · ' + st.riascolti : T.riascolta,
+      animBoard: st.scossa && !st.riduciMoto ? 'cagedShake .4s ease' : 'none',
+      corde, etichetteCorde, celle, tastiLinee, numeriTasti, segnitasto, onde: st.onde,
+      stileManico: 'position:relative;width:' + larghManico + 'px;height:296px;animation:' + (st.scossa && !st.riduciMoto ? 'cagedShake .4s ease' : 'none'),
+      titoloRisultato: titolo,
+      testoRisultato: chiusa,
+      urloTaglio: T.urlaTaglio[fasciaEsito],
+      battutaPrig, firmaPrig: '— ' + nomePrig + ' · ' + T.forma + ' ' + bersaglio,
+      formeGiro: LETTERE.map(l=>({lettera:l, sfondo: usateGiro[l] ? 'hsl(42 87% 55% / .18)' : 'hsl(40 30% 90% / .06)', colore: usateGiro[l] ? ORO : 'hsl(40 30% 90% / .3)'}))
+    };
+  }
+}
+</script>
+</body>
+</html>
