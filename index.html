@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/styles.css">
 <script src="_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/_ds_bundle.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#031a2b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="UNCAGED">
 <style>
 html,body{margin:0;height:100%;background:hsl(204 96% 6%);overscroll-behavior:none;-webkit-text-size-adjust:100%}
 button{touch-action:manipulation}
@@ -1184,8 +1190,28 @@ class Component extends DCLogic {
       carte.push(this.creaCarta(c.q.id, c.l, pcFisso));
     }
     this.pulisci();
+    this.schermoIntero(true);
     this.setState({schermo:'gioco', carte, indice:0, combo:0, punti:0, perfette:0, onde:[]}, ()=>this.avviaCarta(0));
   };
+
+  // le barre del browser rubano altezza proprio al manico. Si chiede lo schermo
+  // intero sul gesto di chi gioca, l'unico momento in cui il browser lo concede.
+  // Su iPhone l'API non esiste: li' l'unica strada e' "Aggiungi a Home".
+  schermoIntero(entra){
+    try{
+      if(entra){
+        const el = document.documentElement;
+        const req = el.requestFullscreen || el.webkitRequestFullscreen;
+        // il browser puo' rifiutare: senza .catch il rifiuto finisce in console
+        if(req && !document.fullscreenElement){ const r = req.call(el, {navigationUI:'hide'}); if(r && r.catch) r.catch(()=>{}); }
+        if(screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(()=>{});
+      } else {
+        if(screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
+        const esci = document.exitFullscreen || document.webkitExitFullscreen;
+        if(esci && document.fullscreenElement){ const r = esci.call(document); if(r && r.catch) r.catch(()=>{}); }
+      }
+    }catch(e){}
+  }
 
   avviaCarta(i){
     const primaVolta = i === 0;
@@ -1310,8 +1336,13 @@ class Component extends DCLogic {
     for(let i=0;i<buf.length;i++) somma += buf[i]*buf[i];
     const rms = Math.sqrt(somma / buf.length);
     if(rms < 0.012) return -1;
+    // il taglio e' relativo al picco del buffer: con una soglia fissa a 0.2 il
+    // microfono era sordo sotto quel livello, e una chitarra piana o una stanza
+    // grande ci finivano quasi sempre
+    let picco = 0;
+    for(let i=0;i<buf.length;i++){ const v = Math.abs(buf[i]); if(v > picco) picco = v; }
     let inizio = 0, fine = buf.length - 1;
-    const soglia = 0.2;
+    const soglia = Math.max(0.02, picco * 0.2);
     while(inizio < buf.length/2 && Math.abs(buf[inizio]) < soglia) inizio++;
     while(fine > buf.length/2 && Math.abs(buf[fine]) < soglia) fine--;
     const b = buf.slice(inizio, fine);
@@ -1323,7 +1354,12 @@ class Component extends DCLogic {
     while(d < n-1 && c[d] > c[d+1]) d++;
     let max = -1, pos = -1;
     for(let i=d;i<n;i++) if(c[i] > max){ max = c[i]; pos = i; }
-    if(pos <= 0) return -1;
+    if(pos <= 0 || !c[0]) return -1;
+    // quanto il segnale e' davvero periodico: una nota sta sopra 0.94, il rumore
+    // sotto 0.39. Senza questo controllo la soglia relativa sentirebbe note
+    // dentro il fruscio della stanza
+    const chiarezza = (max / (n - pos)) / (c[0] / n);
+    if(chiarezza < 0.6) return -1;
     // interpolazione parabolica per affinare il periodo
     const x1 = c[pos-1] || 0, x2 = c[pos], x3 = c[pos+1] || 0;
     const a = (x1 + x3 - 2*x2) / 2, bb = (x3 - x1) / 2;
@@ -1748,7 +1784,7 @@ const T = L[st.lingua] || L.en;
       riprendiGiro: this.nuovoGiro,
       chiudiDeck: this.chiudiDeck,
       tFineDeck: (mazzo === 'tutorial' && st.tutorialPrima) ? T.iniziaOra : T.chiudiStoria,
-      tornaHome: () => { this.pulisci(); this.setState({schermo:'profilo', fase:'attesa'}); },
+      tornaHome: () => { this.pulisci(); this.schermoIntero(false); this.setState({schermo:'profilo', fase:'attesa'}); },
       pips, contatoreCarte: (st.indice+1) + '/' + this.nCarte,
       combo: st.combo, punti: st.punti, perfette,
       comboBg: st.combo > 0 ? 'hsl(42 87% 55% / .16)' : 'hsl(40 30% 90% / .07)',
