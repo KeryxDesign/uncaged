@@ -87,7 +87,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           <div style="display:flex;align-items:center;gap:16px">
             <div style="width:66px;height:66px;flex:none;border-radius:50%;border:2px solid hsl(42 87% 55% / .45);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;color:hsl(42 87% 55%)">F</div>
             <div>
-              <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:hsl(6 63% 62%);margin-bottom:3px">UNCAGED</div>
+              <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:hsl(6 63% 62%);margin-bottom:3px">UNCAGED</div>
               <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-.01em">{{ tChitarrista }}</div>
               <div style="font-size:13px;color:hsl(40 30% 90% / .6);margin-top:3px">{{ livello }}</div>
             </div>
@@ -95,16 +95,16 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div style="padding:14px 16px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(42 87% 55% / .3)">
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ streak }}</div>
-              <div style="font-size:10px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tStreak }}</div>
+              <div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tStreak }}</div>
             </div>
             <div style="padding:14px 16px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:800;line-height:1;color:hsl(199 89% 60%)">{{ accuratezza }}</div>
-              <div style="font-size:10px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tAccuratezza }}</div>
+              <div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tAccuratezza }}</div>
             </div>
             <div style="grid-column:1 / -1;display:flex;gap:10px">
               <div style="box-sizing:border-box;flex:1;min-width:0;padding:14px 16px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
                 <div style="font-family:'Playfair Display',Georgia,serif;font-size:30px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ puntiTot }}</div>
-                <div style="font-size:10px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tPunti }}</div>
+                <div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .68);margin-top:5px">{{ tPunti }}</div>
               </div>
               <div style="position:relative;box-sizing:border-box;flex:1;min-width:0;display:flex;align-items:center;gap:11px;padding:14px 14px;border-radius:13px;background:linear-gradient(135deg,hsl(199 55% 38%),hsl(199 60% 30%));border:1px solid hsl(199 70% 58% / .7);box-shadow:0 5px 16px hsl(199 60% 25% / .35),inset 0 1px 0 hsl(0 0% 100% / .14);cursor:pointer">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="hsl(199 85% 88%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none">
@@ -136,7 +136,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                 <button type="button" onClick="{{ f.onTap }}" style="{{ f.stileScuro }}">
                   <div style="display:flex;flex-direction:column;gap:2px">
                     <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:{{ f.coloreLetteraScuro }}">{{ f.lettera }}</span>
-                    <span style="font-size:10px;color:{{ f.colorePctScuro }}">{{ f.pct }}%</span>
+                    <span style="font-size:12px;color:{{ f.colorePctScuro }}">{{ f.pct }}%</span>
                   </div>
                   <div style="height:5px;border-radius:3px;background:hsl(40 30% 90% / .12);overflow:hidden">
                     <div style="height:100%;width:{{ f.pct }}%;background:{{ f.barra }};border-radius:3px"></div>
@@ -147,9 +147,9 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
             <div style="display:flex;flex-direction:column;margin-top:11px;padding:13px 15px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(42 87% 55% / .28);overflow:auto">
               <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
                 <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:17px;line-height:1.15;color:hsl(42 88% 70%)">{{ selPrigioniero }}</div>
-                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .5)">{{ selEtichetta }}</div>
+                <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;text-align:right;color:hsl(40 30% 90% / .5)">{{ selEtichetta }}</div>
               </div>
-              <div style="display:inline-flex;align-self:flex-start;margin-top:7px;padding:3px 9px;border-radius:999px;background:hsl(199 60% 40% / .35);border:1px solid hsl(199 70% 60% / .4);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:hsl(199 85% 82%)">{{ selGenere }}</div>
+              <div style="display:inline-flex;align-self:flex-start;margin-top:7px;padding:3px 9px;border-radius:999px;background:hsl(199 60% 40% / .35);border:1px solid hsl(199 70% 60% / .4);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:hsl(199 85% 82%)">{{ selGenere }}</div>
               <div style="font-size:12px;line-height:1.45;color:hsl(40 30% 90% / .78);margin-top:7px;text-wrap:pretty">{{ selRitratto }}</div>
               <div style="font-size:11.5px;line-height:1.5;color:hsl(40 30% 90% / .62);margin-top:5px;text-wrap:pretty">{{ selLore }}</div>
               <div style="font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:12px;line-height:1.5;color:hsl(42 88% 76%);margin-top:8px;padding-left:10px;border-left:2px solid hsl(42 87% 55% / .5);text-wrap:pretty">{{ selBattuta }}</div>
@@ -181,9 +181,9 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
             <button type="button" onClick="{{ vaiStoria }}" style="{{ stileTabStoria }}">{{ tStoria }}</button>
             <button type="button" onClick="{{ vaiTutorial }}" style="{{ stileTabTutorial }}">{{ tComeFunziona }}</button>
           </div>
-          <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:hsl(6 63% 62%);white-space:nowrap">{{ slideCorrente.k }}</div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:hsl(6 63% 62%);white-space:nowrap">{{ slideCorrente.k }}</div>
           <div style="flex:1"></div>
-          <div style="font-size:11px;letter-spacing:.06em;color:hsl(40 30% 90% / .5);white-space:nowrap">{{ etSlide }}</div>
+          <div style="font-size:12px;letter-spacing:.06em;color:hsl(40 30% 90% / .5);white-space:nowrap">{{ etSlide }}</div>
         </div>
 
         <div style="box-sizing:border-box;flex:1;min-width:0;min-height:0;display:flex;align-items:center;gap:28px;padding:0 {{ padBordo }}px">
@@ -211,10 +211,10 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
               <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
                 <div style="display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:10px;background:hsl(204 96% 10%);border:1px solid hsl(40 30% 90% / .12)">
                   <span style="font-family:'Playfair Display',Georgia,serif;font-size:19px;font-weight:800;line-height:1;color:{{ f.coloreLetteraSbarra }}">{{ f.lettera }}</span>
-                  <span style="font-size:10px;font-weight:700;line-height:1.2;color:{{ f.colorePrigioniero }}">{{ f.prigioniero }}</span>
+                  <span style="font-size:12px;font-weight:700;line-height:1.2;color:{{ f.colorePrigioniero }}">{{ f.prigioniero }}</span>
                 </div>
               </sc-for>
-              <div style="grid-column:1 / -1;font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:11px;line-height:1.45;color:hsl(42 88% 74%);text-wrap:pretty">{{ battutaPrig }}</div>
+              <div style="grid-column:1 / -1;font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:12px;line-height:1.45;color:hsl(42 88% 74%);text-wrap:pretty">{{ battutaPrig }}</div>
             </div>
             </sc-if>
 
@@ -227,7 +227,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                   <div style="flex:1;height:8px;border-radius:4px;background:hsl(40 30% 90% / .12);overflow:hidden">
                     <div style="height:100%;width:{{ f.vita }}%;background:{{ f.vitaColore }};border-radius:4px"></div>
                   </div>
-                  <span style="width:34px;flex:none;text-align:right;font-size:10px;font-weight:700;color:{{ f.colorePctScuro }}">{{ f.statoBoss }}</span>
+                  <span style="width:34px;flex:none;text-align:right;font-size:12px;font-weight:700;color:{{ f.colorePctScuro }}">{{ f.statoBoss }}</span>
                 </div>
               </sc-for>
             </div>
@@ -243,7 +243,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                 <div style="position:absolute;left:14px;right:0;top:{{ c.y }}px;height:1px;background:hsl(40 30% 90% / .5)"></div>
               </sc-for>
               <sc-for list="{{ figNote }}" as="n" hint-placeholder-count="4">
-                <div style="position:absolute;left:{{ n.x }}px;top:{{ n.y }}px;transform:translate(-50%,-50%);width:34px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;background:{{ n.sfondo }};color:{{ n.testoColore }};border:1px solid {{ n.bordo }}">{{ n.testo }}</div>
+                <div style="position:absolute;left:{{ n.x }}px;top:{{ n.y }}px;transform:translate(-50%,-50%);width:34px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:{{ n.sfondo }};color:{{ n.testoColore }};border:1px solid {{ n.bordo }}">{{ n.testo }}</div>
               </sc-for>
             </div>
             </sc-if>
@@ -257,7 +257,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
               </div>
               <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px">
                 <div>
-                  <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55)">bpm</div>
+                  <div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55)">bpm</div>
                   <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">70</div>
                 </div>
                 <div style="flex:1;height:44px;position:relative">
@@ -265,7 +265,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                   <div style="position:absolute;left:0;bottom:6px;width:100%;height:34px;border-bottom:0;background:linear-gradient(to top right,transparent 49%,hsl(42 87% 55% / .5) 50%,transparent 51%)"></div>
                 </div>
                 <div style="text-align:right">
-                  <div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55)">bpm</div>
+                  <div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55)">bpm</div>
                   <div style="font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:800;line-height:1;color:hsl(6 63% 66%)">170</div>
                 </div>
               </div>
@@ -277,7 +277,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
               <sc-for list="{{ figAiuti }}" as="a" hint-placeholder-count="4">
                 <div style="display:flex;align-items:center;gap:11px">
                   <div style="width:34px;height:34px;flex:none;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;border:1px solid {{ a.colore }};color:{{ a.colore }}">{{ a.icona }}</div>
-                  <span style="font-size:11px;line-height:1.35;color:hsl(40 30% 90% / .8)">{{ a.testo }}</span>
+                  <span style="font-size:12px;line-height:1.35;color:hsl(40 30% 90% / .8)">{{ a.testo }}</span>
                 </div>
               </sc-for>
             </div>
@@ -295,7 +295,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
               </div>
               <div style="display:flex;gap:6px">
                 <sc-for list="{{ figSparso }}" as="s" hint-placeholder-count="5">
-                  <div style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;background:hsl(199 90% 62%);color:hsl(204 96% 8%)">{{ s.n }}</div>
+                  <div style="width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:hsl(199 90% 62%);color:hsl(204 96% 8%)">{{ s.n }}</div>
                 </sc-for>
               </div>
             </div>
@@ -338,14 +338,14 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
         <div style="box-sizing:border-box;flex:1;min-width:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start;padding:20px {{ padBordo }}px 26px">
           <div style="display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
             <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
-              <span style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tVolume }}</span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tVolume }}</span>
               <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ volume }}</span>
             </div>
             <input type="range" min="0" max="100" step="5" value="{{ volume }}" onChange="{{ cambiaVolume }}" style="width:100%;accent-color:hsl(42 87% 55%);cursor:pointer">
           </div>
 
           <div style="display:flex;flex-direction:column;gap:12px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tDifficolta }}</div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tDifficolta }}</div>
             <button type="button" onClick="{{ cambiaHardcore }}" style="display:flex;align-items:center;gap:12px;padding:0;border:none;background:transparent;cursor:pointer;font-family:inherit;text-align:left">
               <div style="{{ swHardBox }}"><div style="{{ swHardPal }}"></div></div>
               <div style="display:flex;flex-direction:column;gap:2px">
@@ -357,7 +357,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
 
           <div style="grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
             <div style="min-width:0">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tLettura }}</div>
+              <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tLettura }}</div>
               <div style="font-size:12px;line-height:1.4;color:hsl(40 30% 90% / .62);margin-top:4px">{{ tLetturaSub }}</div>
             </div>
             <div style="display:flex;gap:3px;flex:none;padding:3px;border-radius:12px;border:1px solid hsl(40 30% 90% / .16);background:hsl(40 30% 90% / .06)">
@@ -368,7 +368,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           </div>
 
           <div style="grid-column:1 / -1;display:flex;flex-direction:column;gap:14px;padding:18px 20px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .12)">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tAccessibilita }}</div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:hsl(40 30% 90% / .68)">{{ tAccessibilita }}</div>
             <div style="display:flex;gap:28px;flex-wrap:wrap">
               <button type="button" onClick="{{ cambiaTestoGrande }}" style="display:flex;align-items:center;gap:12px;padding:0;border:none;background:transparent;cursor:pointer;font-family:inherit;text-align:left">
                 <div style="{{ swTestoBox }}"><div style="{{ swTestoPal }}"></div></div>
@@ -425,8 +425,8 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
         <div style="{{ layoutHomePannello }}">
           <div>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:hsl(6 63% 62%)">{{ tOggi }}</div>
-              <button type="button" onClick="{{ vaiProfilo }}" style="padding:4px 11px;border-radius:8px;border:1px solid hsl(40 30% 90% / .2);background:transparent;color:hsl(40 30% 90% / .7);font-family:inherit;font-weight:700;font-size:11px;cursor:pointer;white-space:nowrap">← {{ tVaiAlProfilo }}</button>
+              <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;color:hsl(6 63% 62%)">{{ tOggi }}</div>
+              <button type="button" onClick="{{ vaiProfilo }}" style="padding:4px 11px;border-radius:8px;border:1px solid hsl(40 30% 90% / .2);background:transparent;color:hsl(40 30% 90% / .7);font-family:inherit;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap">← {{ tVaiAlProfilo }}</button>
             </div>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-.015em;margin:7px 0 6px;text-wrap:pretty">{{ tTitolo }}</h1>
             <p style="margin:0;font-size:14px;line-height:1.5;color:hsl(40 30% 90% / .8);max-width:30ch">{{ tIntro }}</p>
@@ -434,25 +434,25 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           <div style="display:flex;align-items:center;gap:16px">
             <div>
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ streak }}</div>
-              <div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .72);margin-top:4px">{{ tStreak }}</div>
+              <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .72);margin-top:4px">{{ tStreak }}</div>
             </div>
             <div style="width:1px;height:38px;background:hsl(40 30% 90% / .16)"></div>
             <div>
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(40 30% 90%)">{{ accuratezza }}</div>
-              <div style="font-size:11px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .72);margin-top:4px">{{ tAccuratezza }}</div>
+              <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .72);margin-top:4px">{{ tAccuratezza }}</div>
             </div>
           </div>
         </div>
 
         <div style="{{ layoutHomeDestra }}">
           <div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:6px">{{ tForme }}</div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:6px">{{ tForme }}</div>
             <div style="display:flex;gap:9px">
               <sc-for list="{{ formeCards }}" as="f" hint-placeholder-count="5">
                 <button type="button" onClick="{{ f.onTap }}" style="{{ f.stile }}">
                   <div style="display:flex;flex-direction:column;gap:3px">
                     <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:800;line-height:1;color:{{ f.coloreLettera }}">{{ f.lettera }}</span>
-                    <span style="font-size:10px;letter-spacing:.04em;color:{{ f.colorePct }}">{{ f.pct }}%</span>
+                    <span style="font-size:12px;letter-spacing:.04em;color:{{ f.colorePct }}">{{ f.pct }}%</span>
                   </div>
                   <div style="height:5px;border-radius:3px;background:{{ f.barraSfondo }};overflow:hidden">
                     <div style="height:100%;width:{{ f.pct }}%;background:{{ f.barra }};border-radius:3px"></div>
@@ -463,9 +463,9 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
             <div style="display:flex;flex-direction:column;margin-top:11px;padding:13px 15px;border-radius:13px;background:hsl(204 96% 6%);border:1px solid hsl(42 87% 55% / .28);overflow:auto">
               <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
                 <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:17px;line-height:1.15;color:hsl(42 88% 70%)">{{ selPrigioniero }}</div>
-                <div style="font-size:10px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;color:hsl(40 30% 90% / .5)">{{ selEtichetta }}</div>
+                <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;text-align:right;color:hsl(40 30% 90% / .5)">{{ selEtichetta }}</div>
               </div>
-              <div style="display:inline-flex;align-self:flex-start;margin-top:7px;padding:3px 9px;border-radius:999px;background:hsl(199 60% 40% / .35);border:1px solid hsl(199 70% 60% / .4);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:hsl(199 85% 82%)">{{ selGenere }}</div>
+              <div style="display:inline-flex;align-self:flex-start;margin-top:7px;padding:3px 9px;border-radius:999px;background:hsl(199 60% 40% / .35);border:1px solid hsl(199 70% 60% / .4);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:hsl(199 85% 82%)">{{ selGenere }}</div>
               <div style="font-size:12px;line-height:1.45;color:hsl(40 30% 90% / .78);margin-top:7px;text-wrap:pretty">{{ selRitratto }}</div>
               <div style="font-size:11.5px;line-height:1.5;color:hsl(40 30% 90% / .62);margin-top:5px;text-wrap:pretty">{{ selLore }}</div>
               <div style="font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:12px;line-height:1.5;color:hsl(42 88% 76%);margin-top:8px;padding-left:10px;border-left:2px solid hsl(42 87% 55% / .5);text-wrap:pretty">{{ selBattuta }}</div>
@@ -473,7 +473,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           </div>
 
           <div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:7px">{{ tQualita }}</div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:7px">{{ tQualita }}</div>
             <select onChange="{{ cambiaQualita }}" value="{{ valQualita }}" style="{{ stileSelect }}">
               <sc-for list="{{ opzQualita }}" as="o" hint-placeholder-count="7">
                 <option value="{{ o.v }}">{{ o.et }}</option>
@@ -482,7 +482,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           </div>
 
           <div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:7px">{{ tToniche }}</div>
+            <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:hsl(204 96% 10% / .68);margin-bottom:7px">{{ tToniche }}</div>
             <select onChange="{{ cambiaTonica }}" value="{{ valTonica }}" style="{{ stileSelect }}">
               <sc-for list="{{ opzToniche }}" as="o" hint-placeholder-count="13">
                 <option value="{{ o.v }}">{{ o.et }}</option>
@@ -496,12 +496,12 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
             </div>
             <div style="display:flex;flex-direction:column;gap:1px">
               <span style="font-weight:700;font-size:13px;color:hsl(204 96% 10%)">{{ tHardcore }}</span>
-              <span style="font-size:11px;line-height:1.3;color:hsl(204 96% 10% / .72)">{{ tHardcoreSub }}</span>
+              <span style="font-size:12px;line-height:1.3;color:hsl(204 96% 10% / .72)">{{ tHardcoreSub }}</span>
             </div>
           </button>
 
           <div style="display:flex;flex-direction:column;gap:8px;margin-top:auto">
-            <div style="font-size:11px;line-height:1.4;color:hsl(204 96% 10% / .74);text-wrap:pretty">{{ riepilogo }}</div>
+            <div style="font-size:12px;line-height:1.4;color:hsl(204 96% 10% / .74);text-wrap:pretty">{{ riepilogo }}</div>
             <div style="display:flex;gap:12px;align-items:center">
               <button type="button" onClick="{{ iniziaGiro }}" style="{{ stileCta }}">{{ testoCta }}</button>
               <button type="button" style="min-height:46px;padding:0 18px;border-radius:13px;border:1px solid hsl(40 25% 78%);background:transparent;color:hsl(204 96% 10%);font-family:inherit;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:#fff">{{ tRipassa }}</button>
@@ -527,7 +527,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                 </sc-for>
               </select>
             </div>
-            <div style="display:inline-flex;flex:none;padding:4px 10px;border-radius:999px;background:hsl(6 63% 55% / .16);color:hsl(6 63% 66%);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">{{ etichettaForma }}</div>
+            <div style="display:inline-flex;flex:none;padding:4px 10px;border-radius:999px;background:hsl(6 63% 55% / .16);color:hsl(6 63% 66%);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">{{ etichettaForma }}</div>
             <div style="flex:1"></div>
             <button type="button" onClick="{{ apriSettings }}" style="{{ stileAiuto }}" title="{{ tSettings }}" aria-label="{{ tSettings }}">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
@@ -555,7 +555,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
             </button>
             <div style="display:flex;align-items:baseline;gap:6px;flex:none;padding:5px 12px;border-radius:999px;background:{{ comboBg }}">
               <span style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:16px;color:{{ comboColore }}">×{{ combo }}</span>
-              <span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:{{ comboColore }};opacity:.75">{{ tCombo }}</span>
+              <span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:{{ comboColore }};opacity:.75">{{ tCombo }}</span>
             </div>
             <div style="font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:22px;color:hsl(40 30% 90%)">{{ punti }}</div>
           </div>
@@ -568,7 +568,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                 <div style="flex:1;height:4px;border-radius:2px;background:{{ pip.colore }}"></div>
               </sc-for>
             </div>
-            <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .62);white-space:nowrap">{{ contatoreCarte }}</div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .62);white-space:nowrap">{{ contatoreCarte }}</div>
           </div>
         </div>
 
@@ -595,13 +595,16 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
                 <div style="position:absolute;left:{{ o.x }}px;top:{{ o.y }}px;width:80px;height:42px;border-radius:21px;border:2px solid {{ o.colore }};animation:cagedPulse .6s ease-out forwards;pointer-events:none"></div>
               </sc-for>
               <sc-for list="{{ numeriTasti }}" as="n" hint-placeholder-count="5">
-                <div style="position:absolute;left:{{ n.x }}px;bottom:0;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.06em;color:{{ n.colore }}">{{ n.testo }}</div>
+                <div style="position:absolute;left:{{ n.x }}px;bottom:0;transform:translateX(-50%);font-size:12px;font-weight:700;letter-spacing:.06em;color:{{ n.colore }}">{{ n.testo }}</div>
               </sc-for>
             </div>
           </div>
         </div>
       </div>
       
+
+
+    </sc-if>
 
       <sc-if value="{{ aRisultato }}">
       <div style="position:absolute;inset:0;display:flex;align-items:center;background:hsl(204 96% 10%);color:hsl(40 30% 90%);padding:0 46px;gap:40px">
@@ -612,7 +615,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           <p style="margin:0;font-size:14px;line-height:1.5;color:hsl(40 30% 90% / .8);max-width:34ch">{{ testoRisultato }}</p>
           <div style="margin-top:16px;padding:12px 16px;border-left:2px solid hsl(42 87% 55%);max-width:40ch">
             <div style="font-family:'Libre Baskerville',Georgia,serif;font-style:italic;font-size:14px;line-height:1.5;color:hsl(42 88% 78%);text-wrap:pretty">{{ battutaPrig }}</div>
-            <div style="font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55);margin-top:7px">{{ firmaPrig }}</div>
+            <div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:hsl(40 30% 90% / .55);margin-top:7px">{{ firmaPrig }}</div>
           </div>
           <div style="display:flex;gap:12px;margin-top:24px">
             <button type="button" onClick="{{ riprendiGiro }}" style="min-height:50px;padding:0 26px;border:none;border-radius:14px;background:hsl(6 63% 55%);color:#fff;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer" style-hover="background:hsl(6 63% 48%)">{{ tAltroGiro }}</button>
@@ -623,15 +626,15 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
           <div style="display:flex;gap:12px">
             <div style="flex:1;padding:18px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(42 87% 55%)">{{ punti }}</div>
-              <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-top:6px">{{ tPunti }}</div>
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-top:6px">{{ tPunti }}</div>
             </div>
             <div style="flex:1;padding:18px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
               <div style="font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:800;line-height:1;color:hsl(40 30% 90%)">{{ perfette }}<span style="font-size:18px;opacity:.45">/{{ nCarte }}</span></div>
-              <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-top:6px">{{ tCartePulite }}</div>
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-top:6px">{{ tCartePulite }}</div>
             </div>
           </div>
           <div style="padding:16px 18px;border-radius:16px;background:hsl(204 96% 6%);border:1px solid hsl(40 30% 90% / .1)">
-            <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-bottom:10px">{{ tFormeIncontrate }}</div>
+            <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:hsl(40 30% 90% / .68);margin-bottom:10px">{{ tFormeIncontrate }}</div>
             <div style="display:flex;gap:8px">
               <sc-for list="{{ formeGiro }}" as="f" hint-placeholder-count="5">
                 <div style="flex:1;text-align:center;padding:8px 0;border-radius:10px;background:{{ f.sfondo }};color:{{ f.colore }};font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:17px">{{ f.lettera }}</div>
@@ -641,8 +644,7 @@ a{color:hsl(6 63% 55%)}a:hover{color:hsl(6 63% 48%)}
         </div>
       </div>
       </sc-if>
-
-    </sc-if></div>
+    </div>
   </div>
 
   <sc-if value="{{ cromo }}" hint-placeholder-val="{{ true }}">
@@ -990,7 +992,12 @@ class Component extends DCLogic {
     const tocco = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
     this.misura = () => {
       const vv = window.visualViewport;
-      this.setState({vw: Math.round(vv ? vv.width : window.innerWidth), vh: Math.round(vv ? vv.height : window.innerHeight), tocco});
+      const w = Math.round(vv ? vv.width : window.innerWidth);
+      const h = Math.round(vv ? vv.height : window.innerHeight);
+      // uscendo da schermo intero o girando il telefono il browser puo' misurare 0
+      // per un fotogramma: scriverlo nello stato dava scale(0), cioe' pagina bianca
+      if(!(w > 0 && h > 0)) return;
+      this.setState({vw: w, vh: h, tocco});
     };
     this.misura();
     window.addEventListener('resize', this.misura);
@@ -1468,11 +1475,19 @@ class Component extends DCLogic {
     // il manico vuole larghezza: si chiede di girare solo a un dispositivo che si gira davvero
     const verticale = st.tocco && ritratto && (st.schermo === 'gioco' || st.schermo === 'risultato');
     const stretto = ritratto;
-    // testo più grande: riduce la tela di progetto, così tutto viene scalato in su
-    const zoom = st.testoGrande ? 1.14 : 1;
+    // testo più grande: riduce la tela di progetto, così tutto viene scalato in su.
+    // Vale solo sul profilo, l'unico schermo davvero fluido.
+    // Manico, verdetto e impostazioni hanno misure fisse pensate su 390 px:
+    // rimpicciolire la tela lì taglia fuori numeri di posizione, tasti di uscita
+    // e il bordo destro delle schede. Il racconto in ritratto è già stretto di suo
+    // e stringerlo ancora peggiora. Verificato a 375x812 e a 844x390.
+    const zoomabile = st.schermo === 'profilo';
+    const zoom = (st.testoGrande && zoomabile) ? 1.14 : 1;
     const baseW = Math.round((ritratto ? 390 : 844) / zoom), baseH = Math.round((ritratto ? 844 : 390) / zoom);
     const kMax = st.tocco ? 99 : 1.5;
-    const k = Math.min(vw/baseW, vh/baseH, kMax);
+    const kGrezzo = Math.min(vw/baseW, vh/baseH, kMax);
+    // rete di sicurezza: una misura sballata non deve poter azzerare la scala
+    const k = (isFinite(kGrezzo) && kGrezzo > 0.2) ? kGrezzo : 1;
     const stilePagina = compatto
       ? 'position:fixed;inset:0;width:100%;height:100%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:hsl(204 96% 6%);font-family:\'DM Sans\',system-ui,sans-serif;padding:0;gap:0;-webkit-user-select:none;user-select:none'
       : 'min-height:100vh;padding:56px 40px 72px;display:flex;flex-direction:column;align-items:center;gap:22px;font-family:\'DM Sans\',system-ui,sans-serif;background:hsl(204 96% 6%)';
@@ -1595,8 +1610,8 @@ const T = L[st.lingua] || L.en;
     const iSlide = Math.min(st.slide || 0, Math.max(0, mazzoSlides.length - 1));
     const slideCorrente = mazzoSlides[iSlide] || {};
     const figura = slideCorrente.f;
-    const tabOn = 'padding:5px 13px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:11px;white-space:nowrap;background:hsl(40 30% 90% / .92);color:hsl(204 96% 10%)';
-    const tabOff = 'padding:5px 13px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:11px;white-space:nowrap;background:transparent;color:hsl(40 30% 90% / .6)';
+    const tabOn = 'padding:5px 13px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:12px;white-space:nowrap;background:hsl(40 30% 90% / .92);color:hsl(204 96% 10%)';
+    const tabOff = 'padding:5px 13px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:12px;white-space:nowrap;background:transparent;color:hsl(40 30% 90% / .6)';
 
     const combi = this.combinazioni;
     const pronto = combi.length > 0;
@@ -1619,7 +1634,7 @@ const T = L[st.lingua] || L.en;
       : T.spinta(nomePrig, bersaglio, 100 - pctBers);
     const lingue = [{id:'it', et:'IT'}, {id:'en', et:'EN'}].map(x=>({
       et:x.et,
-      stile: 'padding:3px 9px;border-radius:6px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:10px;letter-spacing:.06em;background:' + (st.lingua === x.id ? 'hsl(40 30% 90% / .9)' : 'transparent') + ';color:' + (st.lingua === x.id ? 'hsl(204 96% 10%)' : 'hsl(40 30% 90% / .72)'),
+      stile: 'padding:3px 9px;border-radius:6px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:12px;letter-spacing:.06em;background:' + (st.lingua === x.id ? 'hsl(40 30% 90% / .9)' : 'transparent') + ';color:' + (st.lingua === x.id ? 'hsl(204 96% 10%)' : 'hsl(40 30% 90% / .72)'),
       onTap: () => this.setState({lingua:x.id})
     }));
 
