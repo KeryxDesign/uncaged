@@ -2,7 +2,11 @@
 
 Gioco di memoria per chitarra sul sistema CAGED. Si accende un arpeggio sul manico, tu lo ripeti: toccando i tasti, oppure suonandolo davvero — il microfono riconosce le note.
 
-**Live:** apri `index.html` in un browser. Nessuna build, nessuna dipendenza da installare.
+**Gioca adesso:** https://keryxdesign.github.io/uncaged/
+
+Funziona da telefono. Su iPhone e Android conviene aggiungerlo alla schermata home: si apre a tutto schermo, senza le barre del browser.
+
+Nessuna build, nessuna dipendenza da installare.
 
 ## Cosa c'è dentro
 
