@@ -4,10 +4,73 @@
   "file_da_ignorare": "UNCAGED.dc.html",
   "ultimo_allineamento": "2026-09-04",
   "design_etag": "1788447147701826",
-  "design_sha256": "63d90803b4f2f1efb8b61c712ec8f7fcdddbf7f1e967808a99c40999ef781b7d",
-  "design_byte": 200353,
-  "repo_sha256": "078deb68c3ddade9355cf219e746ae838b7db931b91b10dea4ff12cf2c6c82e7",
-  "repo_byte": 202083,
-  "patch": "sync/riparazioni-mobile.patch",
-  "regola": "index.html = file_sorgente + patch. Se la ricostruzione non torna, i due sono biforcati e ci si ferma."
+  "regola": "index.html = baseline + patch, e' l'unico file con una patch. Ogni altro file dell'elenco deve essere uguale byte per byte a quello di Claude Design. design_sha256 a null = mai letto dal progetto: lo script lo dichiara NON CONTROLLATO, mai allineato.",
+  "file": [
+    {
+      "repo": "index.html",
+      "design": "CAGED Simon.dc.html",
+      "baseline": "sync/_design-al-2026-09-04.html",
+      "patch": "sync/riparazioni-mobile.patch",
+      "design_sha256": "63d90803b4f2f1efb8b61c712ec8f7fcdddbf7f1e967808a99c40999ef781b7d",
+      "design_byte": 200353,
+      "repo_sha256": "078deb68c3ddade9355cf219e746ae838b7db931b91b10dea4ff12cf2c6c82e7",
+      "repo_byte": 202083
+    },
+    {
+      "repo": "support.js",
+      "design": "support.js",
+      "design_sha256": "8fe7df74405f3c55f49b7249c74ea1397e65d07dea2b1bd3b4a489bec2e28cbe",
+      "design_byte": 69150,
+      "repo_sha256": "8fe7df74405f3c55f49b7249c74ea1397e65d07dea2b1bd3b4a489bec2e28cbe",
+      "repo_byte": 69150,
+      "nota": "il byte in piu' della copia scesa il 2026-09-04 era un newline aggiunto dal salvataggio: list_files del 2026-09-05 da' 69150 byte come il repo, e copia meno newline == repo. Sha design = sha repo.",
+      "design_etag": "1788100154803517"
+    },
+    {
+      "repo": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/styles.css",
+      "design": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/styles.css",
+      "design_sha256": "2c565284d96363c0e901aea911af67cb70eff20948a986660cd7e7a170012ccc",
+      "repo_sha256": "2c565284d96363c0e901aea911af67cb70eff20948a986660cd7e7a170012ccc",
+      "repo_byte": 3978,
+      "design_byte": 3978,
+      "design_etag": "1787950065254496",
+      "prova": "letto dal progetto con read_file il 2026-09-05, decodificato e confrontato byte per byte col repo: uguale"
+    },
+    {
+      "repo": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/_ds_bundle.js",
+      "design": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/_ds_bundle.js",
+      "design_sha256": "e5f41f0b44e05749d01dd48c3de9a056105212a7c7446d7923e21870475d8bc8",
+      "repo_sha256": "e5f41f0b44e05749d01dd48c3de9a056105212a7c7446d7923e21870475d8bc8",
+      "repo_byte": 9320,
+      "design_byte": 9320,
+      "design_etag": "1787950065254496",
+      "prova": "letto dal progetto con read_file il 2026-09-05, decodificato e confrontato byte per byte col repo: uguale"
+    },
+    {
+      "repo": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/_ds_manifest.json",
+      "design": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/_ds_manifest.json",
+      "design_sha256": "5501f5a990389fd058775aa0205c8d3a65eb86d20768406cf527cd25d0d40373",
+      "repo_sha256": "5501f5a990389fd058775aa0205c8d3a65eb86d20768406cf527cd25d0d40373",
+      "repo_byte": 5985,
+      "design_byte": 5985,
+      "design_etag": "1787950065254496",
+      "prova": "letto dal progetto con read_file il 2026-09-05, decodificato e confrontato byte per byte col repo: uguale"
+    },
+    {
+      "repo": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/readme.md",
+      "design": "_ds/keryx-design-system-1e4ff7df-396a-4879-bdfb-75be3456348c/readme.md",
+      "design_sha256": "e3f78daf3f61457bfc28d5c0abf1e0f4d22fd54549781528740106271434a63d",
+      "repo_sha256": "e3f78daf3f61457bfc28d5c0abf1e0f4d22fd54549781528740106271434a63d",
+      "repo_byte": 1268,
+      "design_byte": 1268,
+      "design_etag": "1787950065254496",
+      "prova": "letto dal progetto con read_file il 2026-09-05, decodificato e confrontato byte per byte col repo: uguale"
+    }
+  ],
+  "nati_nel_repo_non_si_confrontano": [
+    "manifest.webmanifest",
+    ".nojekyll",
+    "README.md",
+    ".gitignore"
+  ]
 }
