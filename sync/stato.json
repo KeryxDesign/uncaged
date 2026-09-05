@@ -1,0 +1,13 @@
+{
+  "progetto_claude_design": "aa313804-ef57-4b3c-beb6-9f3925b5c35c",
+  "file_sorgente": "CAGED Simon.dc.html",
+  "file_da_ignorare": "UNCAGED.dc.html",
+  "ultimo_allineamento": "2026-09-04",
+  "design_etag": "1788447147701826",
+  "design_sha256": "63d90803b4f2f1efb8b61c712ec8f7fcdddbf7f1e967808a99c40999ef781b7d",
+  "design_byte": 200353,
+  "repo_sha256": "078deb68c3ddade9355cf219e746ae838b7db931b91b10dea4ff12cf2c6c82e7",
+  "repo_byte": 202083,
+  "patch": "sync/riparazioni-mobile.patch",
+  "regola": "index.html = file_sorgente + patch. Se la ricostruzione non torna, i due sono biforcati e ci si ferma."
+}
